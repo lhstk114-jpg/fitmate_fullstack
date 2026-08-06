@@ -57,7 +57,7 @@
 
 ## 화면 미리보기
 
-| 메인 페이지 | 커뮤니티 | 루틴 생성 |
+| 관리자게시판 | 게시판 | 루틴 생성 |
 |:---:|:---:|:---:|
 | <img src="./image/16. 관리자 게시판(1).gif" width="300px" alt="GIF 설명"> | <img src="./image/8. 게시판(1).gif" width="300px" alt="GIF 설명"> | <img src="./image/9. 루틴생성 조회(1).gif" width="300px" alt="GIF 설명">|
 
