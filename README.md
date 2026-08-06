@@ -27,15 +27,14 @@
 [협업 도구](#협업-도구) &nbsp;|&nbsp;
 [사용방법](#사용방법) &nbsp;|&nbsp;
 [API](#api) &nbsp;|&nbsp;
-[Troubleshooting](#troubleshooting) &nbsp;|&nbsp;
-[Team](#team) &nbsp;|&nbsp;
+[팀 협업](#팀-협업) &nbsp;|&nbsp;
 [프로젝트 구조](#프로젝트-구조) &nbsp;|&nbsp;
 [후기](#후기) &nbsp;|&nbsp;
-[License](#license)
 
 </div>
 
-## 기획배경
+<details open>
+<summary><h2 id="기획배경">기획배경</h2></summary>
 
 사람들에게 운동을 지속적으로 하지못하는 이유와 필요로 하는 부분에 대해 설문을 한 결과<br/>
 대다수의 사람들은 동기 부족과 운동정보 부족이 주된 원인으로 답했고, 필요한 기능으로 운동 루틴 생성과 정보 제공이라고 답하였습니다.<br/>
@@ -55,11 +54,13 @@
 
 </details>
 
-## 화면 미리보기
+<details>
+    <summary><h2 id="화면-미리보기">화면 미리보기</h2></summary>
 
 | 관리자게시판 | 게시판 | 루틴 생성 |
 |:---:|:---:|:---:|
 | <img src="./image/16. 관리자 게시판(1).gif" width="300px" alt="GIF 설명"> | <img src="./image/8. 게시판(1).gif" width="300px" alt="GIF 설명"> | <img src="./image/9. 루틴생성 조회(1).gif" width="300px" alt="GIF 설명">|
+</details>
 
 <details open>
 <summary><h2 id="기술-스택">기술 스택</h2></summary>
@@ -88,7 +89,8 @@
 
 </details>
 
-## 아키텍처
+<details>
+<summary><h2 id="아키텍쳐">아키텍쳐</h2></summary>
 
 ```mermaid
 graph TB
@@ -99,6 +101,8 @@ graph TB
     Server --> ExtAPI["외부 API<br/>Weather / Map 등"]
     Server -.배포.-> Infra["AWS EC2 + Docker"]
 ```
+
+</details>
 
 <details open>
 <summary><h2 id="개발-툴">개발 툴</h2></summary>
@@ -126,7 +130,8 @@ graph TB
 
 </details>
 
-## 사용방법
+<details open>
+<summary><h2 id="사용방법">:star2: 사용방법</h2></summary>
 
 프로젝트는 `frontend/`, `backend/`로 구성되어 있으며, Docker Compose로 한 번에 실행하거나 각각 따로 실행할 수 있으나 Docker Compose로 실행하는 방법만 설명합니다.
 
@@ -140,8 +145,9 @@ docker-compose up -d
 ```
 
 브라우저에서 `http://localhost:3000` 접속
+</details>
 
-<details open>
+<details>
 <summary><h2 id="Environment Variables">:star2: 환경변수 설정</h2></summary>
 
 `.env.example` 파일을 참고하여 `.env` 파일을 생성하세요.
@@ -195,8 +201,8 @@ BACKEND_API_SERVER_URL=localhost:8090
 ```
 </details>
 
-<details open>
-<summary><h2 id="api">API</h2></summary>
+<details>
+<summary><h2 id="api">API 및 OAuth</h2></summary>
 
 **연동 API**
 
@@ -208,6 +214,7 @@ BACKEND_API_SERVER_URL=localhost:8090
 | 결제/계좌 | KakaoBank API |
 | 지도 | KakaoMap API |
 
+
 **OAuth 2.0**
 
 Google, Naver, Kakao 소셜 로그인을 지원합니다.
@@ -216,20 +223,10 @@ Google, Naver, Kakao 소셜 로그인을 지원합니다.
 ![Naver](https://img.shields.io/badge/-Naver-03C75A?logo=naver&logoColor=white)
 ![Kakao](https://img.shields.io/badge/-Kakao-FFCD00?logo=kakaotalk&logoColor=black)
 
-## Troubleshooting
-
-<details>
-<summary>개발 중 겪었던 기술적 이슈</summary>
-
-**이슈:** 문제 상황 설명
-
-**원인:** 원인 분석
-
-**해결:** 어떻게 해결했는지 설명
-
 </details>
 
-## Team
+<details>
+<summary><h2 id="팀-협업">팀 협업</h2></summary>
 
 | 이름 | 담당 내용 |
 |-------|-----------|
@@ -238,10 +235,10 @@ Google, Naver, Kakao 소셜 로그인을 지원합니다.
 | 이현성 | 게시판<br/>- 게시글 CRUD<br/>- 댓글 CRUD<br/><br/>관리자 페이지<br/>- 탭 별 게시글 관리 기능<br/>- 게시글 상세 모달기능<br/>- 게시글 개별 삭제, 선택삭제 기능 구현<br/>- 탭 및 카테고리 CRUD<br/><br/>루틴<br/>- 부위 장비 선택 후 운동루틴 생성<br/>- 루틴결과에서 사진보기를 통해 GIF 파일 오픈 클로즈 토글<br/>- 루틴내역에서 이전 결과 클릭 시 내역 불러오기 (최대 5개까지만 저장) |
 | 김XX | 쇼핑몰<br/>- 상품조회 및 주문 결제<br/>- 구독 서비스<br/>- PT 예약<br/>- 관리자 페이지 상품 CRUD, 주문내역 조회 |
 
-## 프로젝트 구조
+</details>
 
 <details>
-<summary>폴더 구조 보기</summary>
+<summary><h2 id="프로젝트-구조">프로젝트 구조</h2></summary>
 
 | 프론트 | 백 |
 |--------|-----|
@@ -253,16 +250,11 @@ Google, Naver, Kakao 소셜 로그인을 지원합니다.
 
 </details>
 
-## 후기
 
 <details>
-<summary>프로젝트를 통해 배운 점</summary>
+<summary><h2 id="후기">후기</h2></summary>
 
 - 배운 점 : 1차 프로젝트를 작업할 때는 프론트만으로 구현을 해서 신경써야할 부분이 적었는데 백엔드를 같이 구현하게 되며 신경써야할 부분이 늘었고 실수를 통해 빠르게 배우게 되었다
 - 아쉬운 점 / 다음에 시도해보고 싶은 것 : 현재 권한별 행동범위 설정을 구현하지 못한 상태로 추가할 예정
 
 </details>
-
-## License
-
-이 프로젝트는 [MIT License](LICENSE)를 따릅니다.
