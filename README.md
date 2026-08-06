@@ -243,9 +243,9 @@ Google, Naver, Kakao 소셜 로그인을 지원합니다.
 <details>
 <summary>폴더 구조 보기</summary>
 
-| 전체 | 프론트 | 백 |
-|------|--------|-----|
-| docker-compose.yaml<br/>.env | Dockerfile<br/>nginx.conf<br/>- apis<br/>&nbsp;&nbsp;- auth, member, shop, util<br/>- components<br/>admin<br/>auth<br/>chatbot<br/>common<br/>community<br/>exercise<br/>member<br/>shop<br/>trainer<br/>- css<br/>- layout<br/>- page<br/>- router<br/>- store | - admin<br/>- calandar<br/>- chatbot<br/>- common<br/>- community<br/>- config<br/>- exception<br/>- exercise<br/>- file<br/>- main<br/>- map<br/>- member<br/>- shop<br/>- trainer<br/>- weather<br/>Dockerfile |
+| 프론트 | 백 |
+|--------|-----|
+| <img src="./image/frontend.png" alt="front"> | <img src="./image/backend.png" alt="back"> |
 
 | ERD |
 | ------ |
