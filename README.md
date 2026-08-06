@@ -26,10 +26,11 @@
 [개발 툴](#개발-툴) &nbsp;|&nbsp;
 [협업 도구](#협업-도구) &nbsp;|&nbsp;
 [사용방법](#사용방법) &nbsp;|&nbsp;
+[환경변수 설정](#환경변수-설정) &nbsp;|&nbsp;
 [API](#api) &nbsp;|&nbsp;
 [팀 협업](#팀-협업) &nbsp;|&nbsp;
 [프로젝트 구조](#프로젝트-구조) &nbsp;|&nbsp;
-[후기](#후기) &nbsp;|&nbsp;
+[후기](#후기)
 
 </div>
 
@@ -39,6 +40,8 @@
 사람들에게 운동을 지속적으로 하지못하는 이유와 필요로 하는 부분에 대해 설문을 한 결과<br/>
 대다수의 사람들은 동기 부족과 운동정보 부족이 주된 원인으로 답했고, 필요한 기능으로 운동 루틴 생성과 정보 제공이라고 답하였습니다.<br/>
 그렇기에 저희는 동기 부여와 정보의 공유를 위한 커뮤니티, 헬스장 및 PT와 연결되는 구독, 루틴을 생성해주는 서비스 기반의 프로젝트를 제작하였습니다.
+
+</details>
 
 <details open>
 <summary><h2 id="주요-기능">:star2: 주요 기능</h2></summary>
@@ -54,12 +57,13 @@
 
 </details>
 
-<details>
-    <summary><h2 id="화면-미리보기">화면 미리보기</h2></summary>
+<details open>
+<summary><h2 id="화면-미리보기">화면 미리보기</h2></summary>
 
 | 관리자게시판 | 게시판 | 루틴 생성 |
 |:---:|:---:|:---:|
 | <img src="./image/16. 관리자 게시판(1).gif" width="300px" alt="GIF 설명"> | <img src="./image/8. 게시판(1).gif" width="300px" alt="GIF 설명"> | <img src="./image/9. 루틴생성 조회(1).gif" width="300px" alt="GIF 설명">|
+
 </details>
 
 <details open>
@@ -90,7 +94,7 @@
 </details>
 
 <details>
-<summary><h2 id="아키텍쳐">아키텍쳐</h2></summary>
+<summary><h2 id="아키텍처">아키텍처</h2></summary>
 
 ```mermaid
 graph TB
@@ -104,7 +108,7 @@ graph TB
 
 </details>
 
-<details open>
+<details>
 <summary><h2 id="개발-툴">개발 툴</h2></summary>
 
 ![VSCode](https://img.shields.io/badge/-VSCode-007ACC?logo=visualstudiocode&logoColor=white)
@@ -118,7 +122,7 @@ graph TB
 
 </details>
 
-<details open>
+<details>
 <summary><h2 id="협업-도구">협업 도구</h2></summary>
 
 ![KakaoTalk](https://img.shields.io/badge/-KakaoTalk-FFCD00?logo=kakaotalk&logoColor=black)
@@ -126,12 +130,12 @@ graph TB
 ![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/-GitHub-181717?logo=github&logoColor=white)
 
-카카오톡으로 실시간 소통, 스프레드시트로 진행 상황 및 일정 공유, GitHub로 코드 및 이슈 관리를 진행했습니다.
+카카오톡으로 실시간 소통, 스프레드시트로 진행 상황 및 일정 공유, Git/GitHub으로 코드 및 이슈 관리를 진행했습니다.
 
 </details>
 
 <details open>
-<summary><h2 id="사용방법">:star2: 사용방법</h2></summary>
+<summary><h2 id="사용방법">:rocket: 사용방법</h2></summary>
 
 프로젝트는 `frontend/`, `backend/`로 구성되어 있으며, Docker Compose로 한 번에 실행하거나 각각 따로 실행할 수 있으나 Docker Compose로 실행하는 방법만 설명합니다.
 
@@ -140,15 +144,16 @@ graph TB
 ```bash
 git clone https://github.com/lhstk114-jpg/fitmate_fullstack.git
 cd fitmate
-# 환경변수 설정 / 환경변수 설정은 아래 참조
+# 환경변수 설정 (아래 "환경변수 설정" 참조)
 docker-compose up -d
 ```
 
 브라우저에서 `http://localhost:3000` 접속
+
 </details>
 
 <details>
-<summary><h2 id="Environment Variables">:star2: 환경변수 설정</h2></summary>
+<summary><h2 id="환경변수-설정">환경변수 설정</h2></summary>
 
 `.env.example` 파일을 참고하여 `.env` 파일을 생성하세요.
 
@@ -156,6 +161,7 @@ docker-compose up -d
 # 로컬 .env
 # 실제 로컬 환경에서는 이 파일을 복사하여 .env로 사용
 # EC2 배포 환경에서는 깃 secret에 작성된 키 값을 가져와서 새로 .env를 만들어서 사용됨
+
 # MySQL
 MYSQL_DATABASE=fitmate_db
 MYSQL_ROOT_PASSWORD=
@@ -189,16 +195,17 @@ NAVER_CLIENT_SECRET=
 KAKAO_CLIENT_ID=
 KAKAO_CLIENT_SECRET=
 
-# Jwt 시크릿 키
+# JWT 시크릿 키
 JWT_SECRET_KEY=
 
-#DOCKER_HUB 유저이름
+# Docker Hub 유저이름
 DOCKERHUB_USERNAME=
 
-#서버 URL
+# 서버 URL
 FRONT_SERVER_URL=localhost:3000
 BACKEND_API_SERVER_URL=localhost:8090
 ```
+
 </details>
 
 <details>
@@ -213,7 +220,6 @@ BACKEND_API_SERVER_URL=localhost:8090
 | 번역 | Google Cloud Translation API |
 | 결제/계좌 | KakaoBank API |
 | 지도 | KakaoMap API |
-
 
 **OAuth 2.0**
 
@@ -246,7 +252,6 @@ Google, Naver, Kakao 소셜 로그인을 지원합니다.
 
 </details>
 
-
 <details>
 <summary><h2 id="후기">후기</h2></summary>
 
@@ -254,3 +259,7 @@ Google, Naver, Kakao 소셜 로그인을 지원합니다.
 - 아쉬운 점 / 다음에 시도해보고 싶은 것 : 현재 권한별 행동범위 설정을 구현하지 못한 상태로 추가할 예정
 
 </details>
+
+## License
+
+이 프로젝트는 [MIT License](LICENSE)를 따릅니다.
