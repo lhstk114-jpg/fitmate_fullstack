@@ -25,12 +25,12 @@
 [아키텍처](#아키텍처) &nbsp;|&nbsp;
 [개발 툴](#개발-툴) &nbsp;|&nbsp;
 [협업 도구](#협업-도구) &nbsp;|&nbsp;
-[Getting Started](#getting-started) &nbsp;|&nbsp;
+[사용방법](#사용방법) &nbsp;|&nbsp;
 [API](#api) &nbsp;|&nbsp;
 [Troubleshooting](#troubleshooting) &nbsp;|&nbsp;
 [Team](#team) &nbsp;|&nbsp;
 [프로젝트 구조](#프로젝트-구조) &nbsp;|&nbsp;
-[회고](#회고) &nbsp;|&nbsp;
+[후기](#후기) &nbsp;|&nbsp;
 [License](#license)
 
 </div>
@@ -126,7 +126,7 @@ graph TB
 
 </details>
 
-## Getting Started
+## 사용방법
 
 프로젝트는 `frontend/`, `backend/`로 구성되어 있으며, Docker Compose로 한 번에 실행하거나 각각 따로 실행할 수 있으나 Docker Compose로 실행하는 방법만 설명합니다.
 
@@ -247,16 +247,19 @@ Google, Naver, Kakao 소셜 로그인을 지원합니다.
 |------|--------|-----|
 | docker-compose.yaml<br/>.env | Dockerfile<br/>nginx.conf<br/>- apis<br/>&nbsp;&nbsp;- auth, member, shop, util<br/>- components<br/>admin<br/>auth<br/>chatbot<br/>common<br/>community<br/>exercise<br/>member<br/>shop<br/>trainer<br/>- css<br/>- layout<br/>- page<br/>- router<br/>- store | - admin<br/>- calandar<br/>- chatbot<br/>- common<br/>- community<br/>- config<br/>- exception<br/>- exercise<br/>- file<br/>- main<br/>- map<br/>- member<br/>- shop<br/>- trainer<br/>- weather<br/>Dockerfile |
 
+| ERD |
+| ------ |
+| <img src="./image/16. 관리자 게시판(1).gif" width="300px" alt="GIF 설명"> |
+
 </details>
 
-## 회고
+## 후기
 
 <details>
 <summary>프로젝트를 통해 배운 점</summary>
 
-- 배운 점 1: 예) Spring Security + JWT 기반 인증/인가 구조를 처음부터 설계하며 겪은 시행착오와 배운 점
-- 배운 점 2: 예) 팀 단위 협업(Git 브랜치 전략, 코드 리뷰)에서 느낀 점
-- 아쉬운 점 / 다음에 시도해보고 싶은 것
+- 배운 점 : 1차 프로젝트를 작업할 때는 프론트만으로 구현을 해서 신경써야할 부분이 적었는데 백엔드를 같이 구현하게 되며 신경써야할 부분이 늘었고 실수를 통해 빠르게 배우게 되었다
+- 아쉬운 점 / 다음에 시도해보고 싶은 것 : 현재 권한별 행동범위 설정을 구현하지 못한 상태로 추가할 예정
 
 </details>
 
