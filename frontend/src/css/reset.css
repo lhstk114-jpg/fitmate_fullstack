@@ -1,0 +1,45 @@
+/* ===========================
+   Global Reset
+=========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+  list-style: none;
+  text-decoration: none;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+body {
+  color: #333;
+  background: #fff;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+textarea,
+input,
+select {
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}

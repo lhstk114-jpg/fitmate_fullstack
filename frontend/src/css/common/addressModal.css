@@ -1,0 +1,223 @@
+/* ===========================
+   Address Modal Overlay & Layout
+=========================== */
+
+/* 모달 배경 (어둡게 처리 및 중앙 정렬) */
+.address-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 모달 본체 창 */
+.address-modal {
+  width: 100%;
+  max-width: 500px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalFadeIn 0.25s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   Modal Header
+=========================== */
+
+.address-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.address-modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.address-modal-header button {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #888888;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.address-modal-header button:hover {
+  color: #333333;
+}
+
+/* ===========================
+   Modal Content
+=========================== */
+
+.address-modal-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* 우편번호 입력란 + 주소 찾기 버튼 행 */
+.address-search-row {
+  display: flex;
+  gap: 12px;
+}
+
+.address-search-row input {
+  flex: 1;
+}
+
+/* 모달 내부 인풋 스타일 */
+.address-modal-content input[type="text"] {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* 주소 찾기(검색) 버튼 */
+.address-search-row button {
+  width: 110px;
+  height: 48px;
+  border: 1px solid #4b7bec;
+  background: #fff;
+  color: #4b7bec;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.address-search-row button:hover:not(:disabled) {
+  background: #ecf2fe;
+}
+
+.address-search-row button:disabled {
+  border-color: #d9d9d9;
+  color: #999999;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+/* 지도 표시 영역 레퍼 */
+.address-modal-content > div:last-child {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e8e8e8;
+  margin-top: 4px;
+}
+
+/* ===========================
+   Modal Footer
+=========================== */
+
+.address-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 24px;
+  border-top: 1px solid #e8e8e8;
+  background-color: #fafafa;
+}
+
+.address-modal-footer button {
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* 취소 버튼 */
+.address-modal-footer button:first-child {
+  border: 1px solid #d9d9d9;
+  background-color: #ffffff;
+  color: #666666;
+}
+
+.address-modal-footer button:first-child:hover {
+  background-color: #f1f3f5;
+  color: #333333;
+}
+
+/* 선택 완료 버튼 */
+.address-modal-footer button:last-child {
+  border: none;
+  background-color: #4b7bec;
+  color: #ffffff;
+}
+
+.address-modal-footer button:last-child:hover:not(:disabled) {
+  background-color: #3867d6;
+}
+
+.address-modal-footer button:last-child:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 480px) {
+  .address-modal {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .address-modal-header,
+  .address-modal-content,
+  .address-modal-footer {
+    padding: 16px;
+  }
+
+  .address-search-row button {
+    width: 90px;
+    font-size: 13px;
+  }
+}

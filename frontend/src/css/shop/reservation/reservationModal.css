@@ -1,0 +1,190 @@
+/* ==========================================
+   회원 상세정보 모달창 (.reservationModal)
+   ========================================== */
+
+/* 모달 전체 배경 */
+.reservationModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* 모달 메인 컨테이너 */
+.reservationModal-con {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  overflow-y: auto;
+  margin: 20px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  animation: modalSlideUp 0.25s ease-out;
+}
+
+/* 스크롤바 스타일링 (깔끔한 UI 유지) */
+.reservationModal-con::-webkit-scrollbar {
+  width: 6px;
+}
+.reservationModal-con::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 3px;
+}
+.reservationModal-con::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* 우측 상단 X 닫기 버튼 */
+.reservationModal-con > span {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #f1f5f9;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.reservationModal-con > span:hover {
+  color: #0f172a;
+  background-color: #e2e8f0;
+}
+
+.reservationModal-con > ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 모달 헤더 (제목) */
+.reservationModal-con > ul > li:first-child {
+  background-color: #ffffff;
+  padding: 24px 24px 12px 24px;
+  text-align: center;
+}
+
+.reservationModal-con h1 {
+  font-size: 1.25rem;
+  color: #0f172a;
+  margin: 0;
+  font-weight: 700;
+  word-break: keep-all;
+  line-height: 1.4;
+  padding: 0 24px;
+}
+
+/* 프로필 이미지 영역 (두 번째 li) */
+.reservationModal-con > ul > li:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px 20px 24px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.profile-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prev-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #f8fafc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #f1f5f9;
+}
+
+/* 일반 정보 리스트 항목 */
+.reservationModal-con > ul > li:nth-child(n + 3) {
+  display: flex;
+  align-items: center;
+  padding: 13px 24px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.reservationModal-con > ul > li:last-child {
+  border-bottom: none;
+  padding-bottom: 24px;
+}
+
+/* 항목 라벨 (이름, 전화번호 등) */
+.reservationModal-con > ul > li:nth-child(n + 3) > span:first-child {
+  width: 100px;
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* 항목 데이터 값 */
+.reservationModal-con > ul > li:nth-child(n + 3) > span:last-child {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+/* 키프레임 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 576px) {
+  .reservationModal-con {
+    margin: 16px;
+    max-width: 100%;
+  }
+
+  .prev-img {
+    width: 84px;
+    height: 84px;
+  }
+
+  .reservationModal-con > ul > li:nth-child(n + 3) {
+    padding: 11px 18px;
+  }
+}

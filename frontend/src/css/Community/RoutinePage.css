@@ -1,0 +1,317 @@
+/* RoutinePage.css */
+
+/* ---------- 페이지 레이아웃 (좌: 폼 / 우: 결과) ---------- */
+.routine-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* ---------- 패널 공통 ---------- */
+.panel {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 24px 28px;
+  box-sizing: border-box;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #0d1b2a;
+  text-transform: uppercase;
+}
+
+.panel-title {
+  margin: 0 0 20px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.muted {
+  color: #6b7280;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* ---------- 왼쪽: 조건 선택 폼 ---------- */
+.form-panel {
+  flex: 0 0 200px;
+  position: sticky;
+  top: 24px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.field span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.field select {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #1f2937;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.field select:focus {
+  outline: none;
+  border-color: #2f6df6;
+  box-shadow: 0 0 0 3px rgba(47, 109, 246, 0.12);
+}
+
+.error-text {
+  color: #dc2626;
+  font-size: 13px;
+  margin: 0 0 12px;
+}
+
+.btn-primary {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #0d1b2a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #3b6ea8;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- 오른쪽: 결과 패널 ---------- */
+.result-panel {
+  flex: 1;
+  min-width: 600px;
+  min-height: 200px;
+}
+
+/* 결과 없음(빈 상태) */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  min-height: 200px;
+  min-width: 600px;
+}
+
+.empty-state .panel-title {
+  margin-bottom: 8px;
+}
+
+/* ---------- 운동 리스트 ---------- */
+.exercise-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.exercise-card {
+  border: 1px solid #eef1f5;
+  border-radius: 12px;
+  padding: 16px 18px;
+  background: #fafbfc;
+  transition:
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.exercise-card:hover {
+  border-color: #dbe4f3;
+  box-shadow: 0 2px 10px rgba(47, 109, 246, 0.06);
+}
+
+.exercise-index {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #2f6df6;
+  background: #eef3ff;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.exercise-card h3 {
+  margin: 10px 0 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.exercise-card .muted {
+  margin-bottom: 10px;
+}
+
+/* ---------- 뱃지(횟수/세트/휴식) ---------- */
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+/* ---------- 사진 보기/닫기 토글 버튼 ---------- */
+.toggle-btn {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #4b5563;
+  border-radius: 8px;
+  font-weight: 600;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+  white-space: nowrap;
+}
+
+.toggle-btn:hover {
+  background: #eef3ff;
+  border-color: #2f6df6;
+  color: #2f6df6;
+}
+
+.toggle-btn:active {
+  transform: scale(0.97);
+}
+
+/* ---------- 운동 GIF/이미지 ---------- */
+.exercise-gif {
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 50px;
+  width: 100%;
+}
+
+/* ---------- 03 - 히스토리 패널 및 아이템 스타일 ---------- */
+.history-panel {
+  flex: 0 0 240px; /* 히스토리 패널의 고정 너비 조절 */
+}
+
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-card {
+  border: 1px solid #eef1f5;
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: #fafbfc;
+  transition:
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+  cursor: pointer;
+}
+
+.history-card:hover {
+  border-color: #2f6df6;
+  box-shadow: 0 2px 8px rgba(47, 109, 246, 0.08);
+  background: #fff;
+}
+
+.history-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 4px;
+  word-break: break-all; /* 긴 글자 줄바꿈 처리 */
+}
+
+.history-date {
+  font-size: 11px;
+  color: #6b7280;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.history-content {
+  font-size: 12px;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.4;
+  word-break: break-all; /* 줄바꿈 문제 해결 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 2줄까지만 보이고 요약 (선택사항) */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 900px) {
+  .routine-page {
+    flex-direction: column;
+  }
+
+  .form-panel {
+    flex: 1;
+    width: 100%;
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .routine-page {
+    padding: 20px 16px 40px;
+  }
+
+  .panel {
+    padding: 18px 16px;
+  }
+
+  .panel-title {
+    font-size: 18px;
+  }
+
+  .exercise-gif {
+    max-width: 100%;
+  }
+}

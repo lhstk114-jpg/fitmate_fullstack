@@ -1,0 +1,78 @@
+server:
+  port: 8090
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/backendprojectdb}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+  profiles:
+    include:
+      - open
+      - oauth2
+      - paymentkey
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+  main:
+    allow-bean-definition-overriding: true
+
+  rabbitmq:
+    host: ${SPRING_RABBITMQ_HOST:localhost}
+    port: ${SPRING_RABBITMQ_PORT:5672}
+    username: ${SPRING_RABBITMQ_USERNAME}
+    password: ${SPRING_RABBITMQ_PASSWORD}
+
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:localhost}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+
+rabbitmq:
+  queue:
+    question: ec2.queue
+    notification: notification.queue
+  exchange:
+    name: ec2.exchange
+  routing:
+    key:
+      question: ec2.routing.#
+      notification: ec2.notification.#
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+
+img:
+  path:
+    product: ${IMG_PATH_PRODUCT:file:///E:/fitmate/backend/product/}
+    community: ${IMG_PATH_COMMUNITY:file:///E:/fitmate/backend/community/}
+    member: ${IMG_PATH_MEMBER:file:///E:/fitmate/backend/member/}
+    popup: ${IMG_PATH_POPUP:file:///E:/fitmate/backend/popup/}
+    exercise: ${IMG_PATH_EXERCISE:file:///E:/fitmate/backend/exercise/}
+    schedule: ${IMG_PATH_SCHEDULE:file:///E:/fitmate/backend/schedule/}
+
+jwt:
+  secret:
+    key: ${JWT_SECRET_KEY}
+
+app:
+  front-url: ${FRONT_SERVER_URL:http://localhost:3000}

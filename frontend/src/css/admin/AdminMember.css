@@ -1,0 +1,306 @@
+@charset "UTF-8";
+
+/* =====================================================
+   회원 관리 페이지 전용 스타일 (admin-member.css)
+   * admin.css 의 테마 변수 및 기본 레이아웃을 상속받습니다.
+===================================================== */
+
+/* -----------------------------------------------------
+   1. Layout Container
+----------------------------------------------------- */
+.admin-member {
+  position: relative;
+  width: calc(100% - var(--sidebar-width, 260px));
+  min-height: calc(100vh - var(--header-height, 70px));
+  margin-left: var(--sidebar-width, 260px);
+  margin-top: var(--header-height, 70px);
+  padding: 32px;
+  box-sizing: border-box;
+  background-color: var(--bg-main, #f5f7fb);
+  transition:
+    margin-left 0.3s ease,
+    width 0.3s ease;
+}
+
+.admin-member .admin-member-con {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* -----------------------------------------------------
+   2. Title + Insert Button
+----------------------------------------------------- */
+.admin-member .admin-member-title-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.admin-member .admin-member-title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-main, #111827);
+}
+
+.admin-member .insertMember {
+  display: flex;
+}
+
+.admin-member .insertMember button {
+  height: 40px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color, #2563eb);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+  transition: all 0.2s ease;
+}
+
+.admin-member .insertMember button:hover {
+  background-color: var(--primary-hover, #1d4ed8);
+}
+
+/* -----------------------------------------------------
+   3. Header (필터 + 검색)
+----------------------------------------------------- */
+.admin-member .header-con {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+/* 역할(Role) 필터 */
+.admin-member .roleFilter {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 10px;
+  background-color: #e2e8f0;
+}
+
+.admin-member .roleFilter button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-sub, #4b5563);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-member .roleFilter button:hover:not(.active) {
+  color: var(--text-main, #111827);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.admin-member .roleFilter button.active {
+  background-color: var(--primary-color, #2563eb);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+}
+
+/* -----------------------------------------------------
+   4. Search
+----------------------------------------------------- */
+.admin-member .search {
+  margin-bottom: 0;
+}
+
+.admin-member .search .filters form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-member .search select {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--border-color, #d1d5db);
+  border-radius: 8px;
+  background-color: var(--bg-surface, #ffffff);
+  color: var(--text-main, #111827);
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.admin-member .search select:focus {
+  border-color: var(--primary-color, #2563eb);
+}
+
+.admin-member .search input[type="text"] {
+  width: 220px;
+  height: 40px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color, #d1d5db);
+  border-radius: 8px;
+  background-color: var(--bg-surface, #ffffff);
+  color: var(--text-main, #111827);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.admin-member .search input[type="text"]::placeholder {
+  color: var(--text-muted, #9ca3af);
+}
+
+.admin-member .search input[type="text"]:focus {
+  border-color: var(--primary-color, #2563eb);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.admin-member .search input[type="submit"] {
+  height: 40px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color, #2563eb);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.admin-member .search input[type="submit"]:hover {
+  background-color: var(--primary-hover, #1d4ed8);
+}
+
+/* -----------------------------------------------------
+   5. Member List
+----------------------------------------------------- */
+.admin-member .memberList {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 10px;
+  background-color: var(--bg-surface, #ffffff);
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
+}
+
+.admin-member .memberList-head,
+.admin-member .memberList-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr 1fr;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.admin-member .memberList-head li,
+.admin-member .memberList-body li {
+  padding: 15px 10px;
+  overflow: hidden;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-member .memberList-head {
+  border-bottom: 2px solid var(--border-color, #e5e7eb);
+  background-color: var(--bg-subtle, #f8fafc);
+  color: var(--text-main, #111827);
+  font-weight: 700;
+}
+
+.admin-member .memberList-body {
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  background-color: var(--bg-surface, #ffffff);
+  color: var(--text-sub, #4b5563);
+  transition: background-color 0.2s ease;
+}
+
+.admin-member .memberList-body:last-child {
+  border-bottom: none;
+}
+
+.admin-member .memberList-body:hover {
+  background-color: #f9fafb;
+}
+
+.admin-member .memberList-body button {
+  padding: 6px 14px;
+  border: 1px solid var(--border-color, #d1d5db);
+  border-radius: 6px;
+  background-color: var(--bg-surface, #ffffff);
+  color: var(--text-sub, #4b5563);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-member .memberList-body button:hover {
+  border-color: var(--primary-color, #2563eb);
+  background-color: var(--primary-color, #2563eb);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+}
+
+/* -----------------------------------------------------
+   6. Responsive
+----------------------------------------------------- */
+@media screen and (max-width: 900px) {
+  .admin-member {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .admin-member .title-con {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .admin-member .insertMember button {
+    width: 100%;
+  }
+
+  .admin-member .header-con {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-member .roleFilter {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .admin-member .roleFilter button {
+    flex: 1;
+    padding: 8px 0;
+    text-align: center;
+  }
+
+  .admin-member .search .filters form {
+    width: 100%;
+  }
+
+  .admin-member .search input[type="text"] {
+    flex: 1;
+    width: auto;
+  }
+}

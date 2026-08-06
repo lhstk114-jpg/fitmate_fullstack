@@ -1,0 +1,214 @@
+@import "../../../css/common/reset.css";
+
+.cart-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.cart-page h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+
+/* 장바구니 리스트 */
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+/* ====================cart-item=============== */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 체크박스 */
+.cart-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+/* 상품 이미지 */
+.cart-item .productImage {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* 이미지 없을 때 */
+.cart-item .no-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  color: #777;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* 상품 정보 영역 */
+.cart-item > div:not(.no-image) {
+  flex: 1;
+}
+
+.cart-item .productName {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.cart-item .price {
+  margin: 0 0 15px;
+  font-weight: bold;
+}
+
+
+/* 수량 버튼 */
+.cart-item .minus,
+.cart-item .plus {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.cart-item .quantity {
+  display: inline-block;
+  width: 40px;
+  text-align: center;
+}
+
+
+/* 삭제 버튼 */
+.cart-item .delete {
+  margin-top: 15px;
+  padding: 8px 15px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+}
+
+.cart-select-all span {
+  margin-left: 10px;
+}
+
+/* 결제 영역 */
+.cart-summary {
+
+  margin-top: 40px;
+
+  padding: 30px;
+
+  border-radius: 12px;
+
+  background: #f7f7f7;
+
+  text-align: right;
+
+}
+
+
+.cart-summary h3 {
+
+  font-size: 22px;
+
+  margin-bottom: 15px;
+
+}
+
+
+.cart-summary p {
+
+  font-size: 30px;
+
+  font-weight: bold;
+
+  margin-bottom: 25px;
+
+}
+
+
+.cart-summary button {
+
+  width: 180px;
+
+  height: 55px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #111;
+
+  color: white;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+}
+
+.cart-summary button:hover {
+  background: #333;
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.empty-cart h3 {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.shop-btn {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(25, 40, 58);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.shop-btn:hover {
+  background-color: #0D1B2A;
+}
+
+
+@media (max-width: 768px) {
+
+  .cart-page {
+    margin: 40px auto;
+  }
+
+
+  .cart-page h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+
+  .cart-summary {
+    text-align: center;
+  }
+
+
+  .cart-summary button {
+    width: 100%;
+  }
+
+}

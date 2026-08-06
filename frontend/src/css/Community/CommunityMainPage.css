@@ -1,0 +1,24 @@
+/* CommunityMainPage.css */
+
+.community-wrapper {
+  display: flex;
+  align-items: flex-start;
+  width: 1400px;
+}
+
+/* 왼쪽 메뉴 */
+.community-left {
+  position: sticky;
+  top: 0px; /* 스크롤을 내려도 상단에 고정 */
+  height: 100vh; /* 화면 전체 높이를 채움 */
+  overflow-y: auto; /* 메뉴가 길어지면 내부 스크롤 생성 */
+  background: #fff; /* 배경색이 투명해지지 않도록 지정 */
+  border-right: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+/* 오른쪽 메인 */
+.comMain {
+  flex: 1;
+  min-width: 0;
+}

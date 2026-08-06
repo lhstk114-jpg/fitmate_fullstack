@@ -1,0 +1,437 @@
+@import "../../../css/common/reset.css";
+
+/* 주문 페이지 전체 레이아웃 */
+.orderPage {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #333;
+}
+
+.orderPage-con h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #111;
+}
+
+/* 왼쪽 정보 영역과 오른쪽 결제 영역 분할 (Flexbox 이용) */
+.orderContainer {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* 왼쪽 컴포넌트들이 들어가는 곳 */
+.orderContainer .left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* 컴포넌트(상품목록, 배송지정보, 결제수단) 간의 간격 */
+}
+
+/* 오른쪽 결제 사이드바가 들어가는 곳 */
+.orderContainer .right {
+  width: 380px;
+  position: sticky;
+  top: 20px; /* 스크롤 시 상단에 고정되는 효과 */
+  background-color: #f9f9f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* 각 서브 컴포넌트 내부의 공통 박스 스타일 지정을 위한 추천 (선택 사항) */
+/* ProductList, BuyerInfo, PaymentMethod 컴포넌트 내부 감싸는 태그에 활용하시면 좋습니다 */
+.orderContainer .left > div {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px;
+}
+/* ==========================================================================
+   하위 컴포넌트 공통 스타일 (제목, 기본 입력창 등)
+   ========================================================================== */
+   .orderContainer h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #111;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 12px;
+  }
+  
+  /* 두 번째 h2(배송 정보)가 나올 때 위쪽 여백 부여 */
+  .buyerInfo h2 ~ h2 {
+    margin-top: 35px;
+  }
+  
+  /* ==========================================================================
+     1. ProductList 컴포넌트 스타일
+     ========================================================================== */
+  .productList {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px;
+  }
+  
+  .productItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  
+  .productItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .productItem img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .productInfo {
+    flex: 1;
+  }
+  
+  .productInfo h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 6px 0;
+    color: #333;
+    line-height: 1.4;
+  }
+  
+  .productInfo p {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+  }
+  
+  .productPrice {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
+    text-align: right;
+  }
+  
+  /* ==========================================================================
+     2. BuyerInfo 컴포넌트 스타일 (입력 폼)
+     ========================================================================== */
+ 
+.buyerInfo {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 28px;
+}
+
+
+/* 입력 영역 */
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+
+.inputBox label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+
+/* input + select 공통 */
+.inputBox input,
+.inputBox select {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 15px;
+  color: #334155;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+
+.inputBox input:focus,
+.inputBox select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* placeholder */
+.inputBox input::placeholder {
+  color: #94a3b8;
+}
+
+
+/* 주소 찾기 버튼 */
+.inputBox button {
+  width: 110px;
+  height: 42px;
+  border: 1px solid #2563eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+
+.inputBox button:hover {
+  background: #2563eb;
+  color: white;
+}
+
+
+/* 주소 찾기 버튼과 input 사이 */
+.inputBox button + input {
+  margin-top: 10px;
+  background: #f8fafc;
+}
+
+
+/* 읽기 전용 주소 */
+.inputBox input[readonly] {
+  cursor: default;
+  color: #475569;
+}
+
+
+/* 배송 요청사항 select */
+.inputBox select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+
+/* 직접 입력창 */
+.inputBox select + input {
+  margin-top: 10px;
+}
+
+  
+  /* ==========================================================================
+     3. PaymentMethod 컴포넌트 스타일 (라디오 버튼)
+     ========================================================================== */
+  .paymentMethod {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 24px;
+  }
+  
+  .paymentMethod > div {
+    margin-bottom: 12px;
+  }
+  
+  .paymentMethod > div:last-child {
+    margin-bottom: 0;
+  }
+  
+  .paymentMethod label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 8px 0;
+  }
+  
+  .paymentMethod input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #222; /* 라디오 버튼 커스텀 컬러 */
+    cursor: pointer;
+  }
+  
+  /* ==========================================================================
+     4. OrderRight 컴포넌트 스타일 (우측 사이드바 내부)
+     ========================================================================== */
+  .orderRight {
+  width: 100%;
+  max-width: 420px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e2e8f0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #1e293b;
+}
+.orderRight h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a; /* 딥 네이비 */
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #0f172a;
+}
+  
+/* Price Box */
+.priceBox {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  color: #475569;
+}
+  .priceRow span:last-child {
+  font-weight: 600;
+  color: #1e293b;
+}
+/* 총 할인 영역 */
+.priceRow:nth-of-type(3) span:first-child,
+.priceRow:nth-of-type(3) span:last-child {
+  font-weight: 700;
+  color: #2563eb;
+}
+/* FitMate 할인 */
+.priceRow:nth-of-type(4) span:last-child,
+.priceRow:nth-of-type(5) span:last-child {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+
+  .priceBox hr {
+width: 100%;
+  border: none;
+  border-top: 1px dashed #cbd5e1;
+  margin: 8px 0;
+  }
+  
+/* Total Price (최종 결제금액) */
+.totalPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 4px;
+  padding-top: 4px;
+}
+
+.totalPrice > span {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.totalPrice div {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* 할인 전 원가 (취소선) */
+.totalPrice div > span {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+/* 최종 결제 금액 */
+.totalPrice strong {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e3a8a; /* 메인 포인트 네이비 */
+}
+/* 무료배송 강조 */
+.priceRow:nth-of-type(5) span:first-child,
+.priceRow:nth-of-type(4) span:first-child {
+  color: #2563eb;
+}
+
+/* 결제 버튼 */
+.paymentButton {
+  width: 100%;
+  margin-top: 24px;
+  padding: 16px;
+  background-color: #1b2846; /* 메인 네이비 */
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+}
+
+.paymentButton:hover {
+  background-color: #0f172a; /* 더 짙은 네이비 */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.35);
+}
+
+.paymentButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+}
+
+/* 반응형 레이아웃: 화면이 좁아지면 세로로 배치 */
+@media (max-width: 992px) {
+
+  .orderContainer {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .orderContainer .left,
+  .orderContainer .right {
+    width: 100% !important;
+    max-width: 1200px !important;
+  }
+
+  .orderContainer .right {
+    padding: 0;
+  }
+
+  .orderRight {
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
+
+
+@media (max-width: 640px) {
+  .orderRight {
+    padding: 20px 16px;
+  }
+  
+  .totalPrice strong {
+    font-size: 1.35rem;
+  }
+}

@@ -1,0 +1,80 @@
+/* 전체 레이아웃 (이전 스타일 유지) */
+.communityDetail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.detailbody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* 항목 간 간격 */
+}
+
+/* 1줄짜리 항목 (제목 등) */
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2개씩 묶인 항목 (탭+카테고리, 작성자+조회수) */
+.form-group-row {
+  display: flex;
+  gap: 20px;
+}
+
+.flex-item {
+  flex: 1;
+}
+
+/* 라벨 스타일 */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* 입력창 스타일 */
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* 내용 칸: 보더라인 적용 및 이미지 제어 (중요) */
+.content-view {
+  min-height: 300px;
+  padding: 15px;
+  border: 1px solid #ccc; /* 보더라인 */
+  border-radius: 4px;
+  background-color: #fff;
+  margin-top: 5px;
+  overflow: hidden; /* 영역 밖으로 넘침 방지 */
+}
+
+/* 내용 칸 안의 이미지 크기 제어 */
+.content-view img {
+  max-width: 100%; /* 박스 너비를 절대 넘지 않음 */
+  height: auto; /* 비율 유지 */
+  display: block;
+  margin: 10px auto; /* 중앙 정렬 */
+}
+
+/* 버튼 그룹 */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  color: white;
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #0d1b2a;
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

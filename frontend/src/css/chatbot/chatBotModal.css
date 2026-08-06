@@ -1,0 +1,152 @@
+/* 모달 배경 */
+.chatModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* 모달 박스 */
+.chatModal-con {
+  width: 500px;
+  max-width: 90%;
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  animation: modalOpen 0.25s ease;
+}
+
+.chatModal-con ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chatModal-con li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.chatModal-con li:last-child {
+  margin-bottom: 0;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* 제목 */
+.chatModal-con li span:first-child {
+  width: 100px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 입력영역 */
+.chatModal-con li span:last-child {
+  flex: 1;
+}
+
+.chatModal-con input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s;
+  box-sizing: border-box;
+}
+
+.chatModal-con input:focus {
+  border-color: #4f8ef7;
+  box-shadow: 0 0 4px rgba(79, 142, 247, 0.3);
+}
+
+/* 버튼 공통 */
+.chatModal-con button {
+  min-width: 80px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+/* 저장 */
+.chatModal-con button:nth-child(1) {
+  background: #4f8ef7;
+}
+
+.chatModal-con button:nth-child(1):hover {
+  background: #3c79df;
+}
+
+/* 초기화 */
+.chatModal-con button:nth-child(2) {
+  background: #999;
+}
+
+.chatModal-con button:nth-child(2):hover {
+  background: #777;
+}
+
+/* 취소 */
+.chatModal-con button:nth-child(3) {
+  background: #e74c3c;
+}
+
+.chatModal-con button:nth-child(3):hover {
+  background: #cf3e2f;
+}
+
+/* 등장 애니메이션 */
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+  .chatModal-con {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .chatModal-con li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .chatModal-con li span:first-child {
+    width: auto;
+  }
+
+  .chatModal-con li:last-child {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .chatModal-con button {
+    flex: 1;
+    min-width: 90px;
+  }
+}

@@ -1,0 +1,174 @@
+@import "../../../css/common/reset.css";
+
+/* 전체 컨테이너 */
+.order-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 상단 타이틀 */
+.order-list h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #1a1a1a;
+}
+
+/* 주문 내역이 없을 때 */
+.no-orders {
+  text-align: center;
+  padding: 80px 0;
+  color: #888;
+  font-size: 1.1rem;
+}
+
+/* 날짜별 그룹 컨테이너 */
+.order-date-group {
+  margin-bottom: 30px;
+  border: 1px solid #e1e2e3;
+  border-radius: 12px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* 날짜별 그룹 헤더 (주문일 & 상세 보기) */
+.order-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e1e2e3;
+}
+
+.order-group-header .order-date {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.order-group-header  .order-detail {
+  font-size: 0.9rem;
+  color: #007aff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+
+/* 카드들을 감싸는 컨테이너 */
+.order-cards-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 개별 주문 카드 (배송 상태와 상품들을 포함하는 하나의 단위) */
+.order-card {
+  padding: 20px;
+  border-bottom: 1px solid #f1f3f5;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.order-card:last-child {
+  border-bottom: none;
+}
+
+/* 개별 상품 아이템 레이아웃 (가로 정렬의 핵심) */
+.order-content {
+  display: flex;
+  align-items: center; /* 이미지와 텍스트 중앙 맞춤 */
+  gap: 16px;          /* 썸네일과 우측 정보 사이 간격 */
+  width: 100%;
+}
+
+/* 상품 썸네일 이미지 */
+.order-thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #f1f3f5;
+  flex-shrink: 0; /* 이미지 크기 고정 */
+}
+
+/* 썸네일 우측의 상품 및 가격 정보 영역 */
+.order-item-info {
+  flex-grow: 1;      /* 남은 가로 공간을 채움 */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;      /* 글자 말줄임표(...) 정상 작동을 위한 설정 */
+}
+
+.order-item-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.4;
+  /* 상품명이 너무 길면 한 줄로 말줄임 처리 (원하면 line-clamp 값을 늘려 조절 가능) */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.order-item-info p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #222;
+}
+
+/* 하단 배송 상태 영역 */
+.order-status {
+  display: flex;
+  justify-content: flex-end; /* 배송 상태를 우측으로 정렬 */
+  padding-top: 10px;
+  border-top: 1px dashed #f1f3f5; /* 여러 상품 리스트와 배송정보 간 구분선 */
+}
+
+.order-status span {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #495057;
+  background-color: #e9ecef;
+  border-radius: 20px;
+}
+
+/* 모바일 화면 대응 */
+@media (max-width: 576px) {
+  .order-list {
+    padding: 12px;
+  }
+
+  .order-list h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .order-card {
+    padding: 15px;
+  }
+
+  .order-thumbnail {
+    width: 64px;
+    height: 64px;
+  }
+
+  .order-item-info h4 {
+    font-size: 0.95rem;
+  }
+
+  .order-item-info p {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,322 @@
+@charset "UTF-8";
+
+/* =====================================================
+   관리자 상품 등록 및 수정 페이지 전체 스타일 (완벽 수정본)
+===================================================== */
+
+/* 전체 요소 박스 계산 초기화 */
+.admin-product-insert-page *,
+.admin-product-update * {
+  box-sizing: border-box !important;
+}
+
+/* -----------------------------------------------------
+   1. Page Container
+----------------------------------------------------- */
+.admin-product-insert-page,
+.admin-product-update {
+  width: calc(100% - var(--sidebar-width, 260px));
+  min-height: calc(100vh - var(--header-height, 70px));
+  margin-left: var(--sidebar-width, 260px);
+  margin-top: var(--header-height, 70px);
+  padding: 32px 40px;
+  background-color: #f8fafc;
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    sans-serif;
+  transition:
+    margin-left 0.3s ease,
+    width 0.3s ease;
+}
+
+.admin-product-insert-page h2,
+.admin-product-update h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.02em;
+}
+
+/* -----------------------------------------------------
+   2. Content Wrapper (2컬럼 그리드 레이아웃)
+----------------------------------------------------- */
+.product-content-wrapper {
+  display: grid !important;
+  /* 좌측:우측 = 1.2 : 1 비율로 영역 꽉 채우기 */
+  grid-template-columns: 1.2fr 1fr !important;
+  gap: 24px !important;
+  width: 100% !important;
+  align-items: start;
+}
+
+/* -----------------------------------------------------
+   3. Product Form Card (좌측 입력 폼)
+----------------------------------------------------- */
+.product-form {
+  width: 100% !important;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.product-form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100% !important;
+}
+
+/* 라벨 스타일 */
+.product-form label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+  text-align: left !important;
+  white-space: nowrap;
+  margin-left: 2px;
+}
+
+/* Input / Select 높이 및 너비 정상화 */
+.product-form input[type="text"],
+.product-form input[type="number"],
+.product-form select {
+  width: 100% !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  line-height: 44px !important;
+  padding: 0 14px !important;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #0f172a;
+  background-color: #ffffff;
+  outline: none;
+  font-family: inherit;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* Textarea (상품설명) */
+.product-form textarea {
+  width: 100% !important;
+  min-height: 120px !important;
+  padding: 12px 14px !important;
+  line-height: 1.5 !important;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #0f172a;
+  background-color: #ffffff;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.product-form input:focus,
+.product-form select:focus,
+.product-form textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Submit 버튼 */
+.product-form button[type="submit"] {
+  width: 100% !important;
+  height: 46px !important;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
+}
+
+.product-form button[type="submit"]:hover {
+  background-color: #1d4ed8;
+}
+
+/* -----------------------------------------------------
+   4. Image Manage Section (우측 이미지 관리)
+----------------------------------------------------- */
+.image-manage-section {
+  width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 4-1. 파일 선택 카드 */
+.image-upload {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100% !important;
+}
+
+.image-upload > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  width: 100% !important;
+}
+
+.image-upload label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+  text-align: left !important;
+  margin-left: 2px;
+}
+
+.image-upload input[type="file"] {
+  width: 100% !important;
+  padding: 8px 10px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  background-color: #f8fafc;
+  font-size: 0.85rem;
+  color: #475569;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.image-upload input[type="file"]:hover {
+  border-color: #2563eb;
+  background-color: rgba(37, 99, 235, 0.02);
+}
+
+.image-upload input[type="file"]::file-selector-button {
+  padding: 6px 12px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* 4-2. 이미지 목록 카드 */
+.image-list {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  width: 100% !important;
+}
+
+.image-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.image-list-header h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+  margin: 0;
+}
+
+.btn-delete-all {
+  background-color: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fca5a5;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 10px;
+  width: 100% !important;
+}
+
+.image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 6px;
+  gap: 6px;
+}
+
+.image-item img {
+  width: 100%;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.btn-delete-single {
+  width: 100%;
+  padding: 4px 0;
+  background-color: #ef4444;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.no-images {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-align: center;
+  padding: 20px 0;
+  margin: 0;
+}
+
+/* -----------------------------------------------------
+   5. Responsive Layout
+----------------------------------------------------- */
+@media screen and (max-width: 1024px) {
+  .product-content-wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .admin-product-insert-page,
+  .admin-product-update {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding: 20px 16px;
+  }
+}

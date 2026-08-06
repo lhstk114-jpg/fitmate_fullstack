@@ -1,0 +1,124 @@
+.memberUpdatePw {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f6fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+.memberUpdatePw-con {
+  width: 100%;
+  max-width: 550px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+.memberUpdatePw-con ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.memberUpdatePw-con ul li {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.memberUpdatePw-con ul li:last-child {
+  border-bottom: none;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.memberUpdatePw-con ul li span:first-child {
+  width: 140px;
+  font-weight: bold;
+  color: #555;
+}
+
+.memberUpdatePw-con input[type="password"] {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.memberUpdatePw-con input[type="password"]:focus {
+  outline: none;
+  border-color: #3f72af;
+  box-shadow: 0 0 5px rgba(63, 114, 175, 0.3);
+}
+
+/* 버튼 */
+
+.memberUpdatePw-con button {
+  min-width: 140px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.memberUpdatePw-con li:last-child span:first-child button {
+  background: #3f72af;
+  color: #fff;
+}
+
+.memberUpdatePw-con li:last-child span:first-child button:hover {
+  background: #2d5f96;
+}
+
+.memberUpdatePw-con li:last-child span:last-child button {
+  background: #6c757d;
+  color: #fff;
+}
+
+.memberUpdatePw-con li:last-child span:last-child button:hover {
+  background: #5b6268;
+}
+
+/* 반응형 */
+
+@media (max-width: 768px) {
+  .memberUpdatePw-con {
+    padding: 30px 20px;
+  }
+
+  .memberUpdatePw-con ul li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .memberUpdatePw-con ul li span:first-child {
+    width: 100%;
+  }
+
+  .memberUpdatePw-con input[type="password"] {
+    width: 100%;
+  }
+
+  .memberUpdatePw-con ul li:last-child {
+    flex-direction: column;
+  }
+
+  .memberUpdatePw-con button {
+    width: 100%;
+  }
+}

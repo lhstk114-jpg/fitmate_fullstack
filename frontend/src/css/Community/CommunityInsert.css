@@ -1,0 +1,83 @@
+/* =========================================
+   게시글 작성/상세 공통 컨테이너
+   ========================================= */
+.community-insert-container,
+.communityDetail {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+}
+
+h2,
+h1 {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+/* =========================================
+   폼 레이아웃
+   ========================================= */
+.insert-form,
+.detailbody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 1열 배치 요소 */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 2열 배치 요소 (탭+카테고리 등) */
+.form-group-row {
+  display: flex;
+  gap: 20px;
+}
+
+.flex-item {
+  flex: 1;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   버튼 스타일
+   ========================================= */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.submit-btn {
+  background-color: #0d1b2a;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:not(.submit-btn) {
+  padding: 12px 24px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,576 @@
+@charset "UTF-8";
+
+/* =====================================================
+   관리자 게시글/공지사항 관리 전용 스타일 (admin-community.css)
+   * admin.css 의 테마 변수 및 기본 레이아웃을 상속받습니다.
+===================================================== */
+
+/* -----------------------------------------------------
+   1. Main Container (외곽 메인 레이아웃)
+----------------------------------------------------- */
+.comMain,
+.admin-community-page,
+.admin-notice-page {
+  position: relative;
+  width: calc(100% - var(--sidebar-width, 260px));
+  min-height: calc(100vh - var(--header-height, 70px));
+  margin-left: var(--sidebar-width, 260px);
+  margin-top: var(--header-height, 70px);
+  padding: 32px;
+  box-sizing: border-box;
+  background-color: var(--bg-main, #f5f7fb);
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    sans-serif;
+  transition:
+    margin-left 0.3s ease,
+    width 0.3s ease;
+  overflow-x: hidden; /* 요소가 넘쳐서 전체 레이아웃이 깨지는 것 방지 */
+}
+
+.comMain-wrap,
+.admin-community-con {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* -----------------------------------------------------
+   2. Page Header & Actions (상단 타이틀 & 작성 버튼)
+----------------------------------------------------- */
+.comMain h1,
+.admin-community-title {
+  margin: 0 0 16px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-main, #111827);
+}
+
+.comMain .write,
+.admin-community-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.comMain .write button,
+.admin-community-header button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary-color, #2563eb);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.comMain .write button:hover,
+.admin-community-header button:hover {
+  background: var(--primary-hover, #1d4ed8);
+}
+
+/* -----------------------------------------------------
+   3. Filter & Search Row (검색 필터 영역)
+----------------------------------------------------- */
+.admin-filter-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 20px 24px;
+  background: #ffffff;
+  border: 1px solid #e4e8ee;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding: 18px 24px;
+  background: var(--bg-surface, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+  box-sizing: border-box;
+}
+
+.admin-filter-row select,
+.admin-filter-row input {
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--border-color, #d1d5db);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: var(--text-main, #374151);
+  background-color: var(--bg-surface, #ffffff);
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-filter-row select:focus,
+.admin-filter-row input:focus {
+  border-color: var(--primary-color, #2563eb);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.admin-filter-row select {
+  min-width: 140px;
+}
+
+.admin-filter-row input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.admin-filter-row button {
+  height: 42px;
+  padding: 0 20px;
+  background: var(--primary-color, #2563eb);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.admin-filter-row button:hover {
+  background: var(--primary-hover, #1d4ed8);
+}
+
+/* =====================================================
+   탭별 그룹 모드 섹션 스타일
+===================================================== */
+.admin-tab-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
+}
+
+.admin-tab-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.admin-tab-section-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-tab-count {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+/* =====================================================
+   일괄 작업 영역 (선택 개수 및 삭제 버튼)
+===================================================== */
+.admin-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 0 4px;
+  gap: 12px;
+}
+
+.admin-tab-section-header .admin-action-row {
+  margin-bottom: 0;
+  gap: 12px;
+}
+
+.admin-action-row span {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-sub, #555555);
+}
+
+.admin-action-row button {
+  padding: 8px 14px;
+  background: var(--bg-surface, #ffffff);
+  color: var(--danger-color, #dc2626);
+  border: 1px solid var(--danger-color, #dc2626);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-action-row button:disabled {
+  background: var(--bg-subtle, #f3f4f6);
+  color: var(--text-muted, #9ca3af);
+  border-color: var(--border-color, #d1d5db);
+  cursor: not-allowed;
+}
+
+.admin-action-row button:not(:disabled):hover {
+  background: var(--danger-color, #dc2626);
+  color: #ffffff;
+}
+
+/* =====================================================
+   게시글 목록 테이블 스타일 (선 어긋남 현상 완벽 해결)
+===================================================== */
+.comMain table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.comMain table,
+.admin-community-table {
+  width: 100% !important; /* 카드 너비에 맞춰 100%로 강제 고정 */
+  border-collapse: collapse;
+  table-layout: fixed; /* 셀 너비를 균등하게 고정 */
+  background: var(--bg-surface, #ffffff);
+}
+
+.comMain thead,
+.admin-community-table thead {
+  background: var(--bg-subtle, #f8fafc);
+}
+
+.comMain th,
+.comMain td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #374151;
+  text-align: center;
+  vertical-align: middle; /* 모든 칸의 세로 정렬 기준을 정확히 일치시켜 줄 선 끊김 방지 */
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.comMain th,
+.admin-community-table th {
+  color: var(--text-main, #111827);
+  font-weight: 700;
+}
+
+.comMain tbody tr,
+.admin-community-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.comMain tbody tr:hover,
+.admin-community-table tbody tr:hover {
+  background: var(--bg-subtle, #f9fafb);
+}
+
+.comMain tbody tr:last-child td,
+.admin-community-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 각 열의 너비 배분 (체크박스, 번호, 카테고리, 제목, 작성자, 조회수, 작성일, 관리) */
+.comMain th:nth-child(1),
+.comMain td:nth-child(1) {
+  width: 45px;
+}
+.comMain th:nth-child(2),
+.comMain td:nth-child(2) {
+  width: 75px;
+}
+.comMain th:nth-child(3),
+.comMain td:nth-child(3) {
+  width: 120px;
+}
+.comMain th:nth-child(4),
+.comMain td:nth-child(4) {
+  width: auto;
+  text-align: left;
+} /* 제목 영역은 남은 공간을 유연하게 차지하고 좌측 정렬 */
+.comMain th:nth-child(5),
+.comMain td:nth-child(5) {
+  width: 100px;
+}
+.comMain th:nth-child(6),
+.comMain td:nth-child(6) {
+  width: 80px;
+}
+.comMain th:nth-child(7),
+.comMain td:nth-child(7) {
+  width: 110px;
+}
+.comMain th:nth-child(8),
+.comMain td:nth-child(8) {
+  width: 80px;
+}
+
+/* 컴포넌트의 className="admin-title-cell" 대응 스타일 */
+.admin-title-cell {
+  text-align: left !important;
+  font-weight: 500;
+  color: var(--text-main, #1f2937);
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 280px; /* 제목 너비 제한 */
+}
+
+.admin-title-cell:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* 행별 개별 삭제 버튼 */
+.comMain td button {
+  padding: 6px 10px;
+  background: var(--bg-surface, #ffffff);
+  color: var(--danger-color, #dc2626);
+  border: 1px solid var(--danger-color, #dc2626);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap; /* 버튼 글자 줄바꿈 방지 */
+  transition: all 0.2s ease;
+}
+
+.comMain td button:hover {
+  background: var(--danger-color, #dc2626);
+  color: #ffffff;
+}
+
+/* 로딩 및 빈 데이터 안내 문구 */
+.comMain > p,
+.admin-tab-section > p {
+  padding: 40px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+/* ==========================================================
+   관리자 모달 공통 스타일 (오버레이 및 모달 박스)
+   ========================================================== */
+
+/* 1. 배경 어둡게 처리 및 화면 전체 고정 (오버레이) */
+.admin-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 검은 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* 다른 요소들보다 항상 위에 오도록 설정 */
+}
+
+/* 2. 모달 컨텐츠 박스 */
+.admin-modal-box {
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 700px; /* 최대 너비 설정 */
+  max-height: 85vh; /* 화면 높이를 넘지 않도록 제한 */
+  overflow-y: auto; /* 내용이 많으면 내부 스크롤 생성 */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  box-sizing: border-box;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 3. 모달 헤더 (제목 및 닫기 버튼) */
+.admin-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 15px;
+}
+
+.admin-modal-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333333;
+  margin: 0;
+}
+
+.admin-modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #999999;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.2s;
+}
+
+.admin-modal-close:hover {
+  color: #333333;
+}
+
+/* 4. 내부 폼 및 필드 정렬 스타일 개선 */
+.admin-modal-box .detailbody,
+.admin-modal-box .form-row,
+.admin-modal-box .form-group-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.admin-modal-box label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #555555;
+}
+
+.admin-modal-box input[type="text"],
+.admin-modal-box select,
+.admin-modal-box textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.admin-modal-box input[type="text"]:focus,
+.admin-modal-box select:focus {
+  border-color: #3b82f6;
+}
+
+/* 5. 2열 분할 폼 (작성자/조회수, 탭 이름/카테고리 이름 등) */
+.admin-modal-box .form-group-row {
+  flex-direction: row;
+  gap: 15px;
+}
+
+.admin-modal-box .flex-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* 6. 내용 보기 영역 스타일 */
+.admin-modal-box .content-view {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 15px;
+  min-height: 150px;
+  max-height: 250px;
+  overflow-y: auto;
+  font-size: 14px;
+  color: #333333;
+}
+
+/* 7. 모달 하단 버튼 영역 */
+.admin-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 25px;
+  border-top: 1px solid #eaeaea;
+  padding-top: 15px;
+}
+
+.admin-modal-actions button,
+.admin-modal-box button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+/* 삭제/취소 등 서브 버튼 스타일 */
+.admin-modal-actions button:first-child {
+  background-color: #0d1b2a;
+  color: white;
+}
+.admin-modal-actions button:first-child:hover {
+  background-color: #3b6ea8;
+  color: white;
+}
+
+/* 닫기/확인 버튼 스타일 */
+.admin-modal-actions button:last-child {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+.admin-modal-actions button:last-child:hover {
+  background-color: #d1d5db;
+}
+
+/* =====================================================
+   반응형 대응
+===================================================== */
+@media screen and (max-width: 900px) {
+  .comMain {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 70px;
+    padding: 22px 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .comMain {
+    padding: 15px;
+  }
+
+  .admin-filter-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-filter-row select,
+  .admin-filter-row input,
+  .admin-filter-row button {
+    width: 100%;
+  }
+}

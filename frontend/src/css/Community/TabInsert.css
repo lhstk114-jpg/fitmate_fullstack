@@ -1,0 +1,265 @@
+@charset "UTF-8";
+
+/* =====================================================
+   관리자 탭 생성 페이지 전체 스타일 (최종 정렬/가독성 개선본)
+===================================================== */
+
+/* 전체 요소 박스 계산 초기화 */
+.tabInsert *,
+.tabInsert *::before,
+.tabInsert *::after {
+  box-sizing: border-box !important;
+}
+
+/* -----------------------------------------------------
+   1. Page Container (사이드바 및 헤더 위치 보정)
+----------------------------------------------------- */
+.tabInsert {
+  width: calc(100% - var(--sidebar-width, 260px)) !important;
+  min-height: calc(100vh - var(--header-height, 70px));
+  margin-left: var(--sidebar-width, 260px) !important;
+  margin-top: var(--header-height, 70px) !important;
+  padding: 32px 40px;
+  background-color: #f8fafc;
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    sans-serif;
+  transition:
+    margin-left 0.3s ease,
+    width 0.3s ease;
+}
+
+.tabInsert h1 {
+  margin: 0 0 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #0d1b2a;
+  font-size: 28px;
+  color: #333;
+}
+
+/* -----------------------------------------------------
+   2. 탭 개별 카드 섹션 (Card UI)
+----------------------------------------------------- */
+.tabInsert .tab-section {
+  width: 100% !important;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 카드 상단 헤더 (뱃지 및 탭 삭제 버튼) */
+.tabInsert .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.tabInsert .badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 20px;
+}
+
+/* -----------------------------------------------------
+   3. Form Inputs & Grouping
+----------------------------------------------------- */
+.tabInsert .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tabInsert .form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* Input 공통 스타일 */
+.tabInsert .input-box {
+  width: 100% !important;
+  height: 44px !important;
+  padding: 0 14px !important;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #0f172a;
+  background-color: #ffffff;
+  outline: none;
+  border-color: #2b6cb0;
+}
+
+.tabInsert .input-box:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.tabInsert .tab-name-input {
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------
+   4. 하위 카테고리 구조화 영역
+----------------------------------------------------- */
+.tabInsert .category-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  background-color: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 8px;
+}
+
+.tabInsert .category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tabInsert .category-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tabInsert .category-index {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748b;
+  width: 20px;
+  text-align: center;
+}
+
+/* 카테고리 내 버튼 그룹 (수평 가로 정렬) */
+.tabInsert .category-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+/* 카드 하단 탭 추가 영역 (전폭 점선 구분) */
+.tabInsert .add-tab-wrapper {
+  width: 100%;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px dashed #e2e8f0;
+}
+
+/* -----------------------------------------------------
+   5. Buttons System
+----------------------------------------------------- */
+.tabInsert .btn {
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 6px;
+
+  background: #0d1b2a;
+  color: white;
+
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-sizing: border-box;
+}
+
+.tabInsert button:hover {
+  background: #2b6cb0;
+}
+
+.tabInsert .btn-outline:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+  background-color: #eff6ff;
+}
+
+/* 삭제 버튼 (레드 아웃라인 버튼) */
+.tabInsert .btn-danger-outline {
+  background-color: #ffffff;
+  border: 1px solid #fca5a5;
+  color: #ef4444;
+  padding: 0 12px;
+  height: 32px; /* 헤더 영역에 맞춘 깔끔한 높이 */
+  font-size: 0.8rem;
+}
+
+.tabInsert .btn-danger-outline:hover {
+  background-color: #fef2f2;
+  border-color: #ef4444;
+}
+
+/* 텍스트 형태 삭제 버튼 (탭 삭제) */
+.tabInsert .btn-danger-text {
+  background: none;
+  color: #94a3b8;
+  font-size: 0.8rem;
+  padding: 0;
+  height: auto;
+}
+
+.tabInsert .btn-danger-text:hover {
+  color: #ef4444;
+}
+
+/* 새 탭 추가 버튼 (카드 전폭 사용) */
+.tabInsert .btn-sub {
+  width: 100% !important;
+  background-color: #ffffff;
+  border: 1px dashed #cbd5e1;
+  color: #475569;
+}
+
+.tabInsert .btn-sub:hover {
+  background-color: #f8fafc;
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+/* 최하단 전체 저장 버튼 */
+.tabInsert .btn-submit {
+  width: 100% !important;
+  max-width: 300px;
+  height: 48px !important;
+  margin: 32px auto 0;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  display: block;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.3);
+}
+
+.tabInsert .btn-submit:hover {
+  background-color: #1d4ed8;
+}
+
+/* -----------------------------------------------------
+   6. Responsive Layout
+----------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  .tabInsert {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding: 20px 16px;
+  }
+}

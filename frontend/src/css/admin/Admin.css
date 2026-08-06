@@ -1,0 +1,328 @@
+@charset "UTF-8";
+@import url("../common/reset.css");
+
+/* =====================================================
+   1. 공통 서브페이지 외곽 컨테이너
+   (대시보드, 팝업, 회원관리 등 모든 페이지의 최상위 wrapper)
+===================================================== */
+.admin-main,
+.admin-page-container {
+  position: relative;
+  width: calc(100% - var(--sidebar-width));
+  min-height: calc(100vh - var(--header-height));
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+  padding: 32px;
+  box-sizing: border-box;
+  background-color: var(--bg-main);
+  transition:
+    margin-left 0.3s ease,
+    width 0.3s ease;
+}
+
+/* =====================================================
+   2. 관리자 메인 대시보드 (.adminIndex)
+===================================================== */
+.adminIndex {
+  width: 100%;
+}
+
+.adminIndex-wrap {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* 페이지 상단 타이틀 카드 */
+.adminIndex-top {
+  margin-bottom: 32px;
+}
+
+.adminIndex-top-con {
+  padding: 28px 30px;
+  background-color: var(--bg-surface);
+  border: 1px solid #e5e8ec;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+.adminIndex-top .title h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #222222;
+}
+
+.adminIndex-top .title p {
+  margin: 0;
+  font-size: 15px;
+  color: #777777;
+}
+
+/* 공통 섹션 타이틀 */
+.adminIndex-dashboard-wrap,
+.adminIndex-member-wrap,
+.adminIndex-community-wrap,
+.adminIndex-product-wrap {
+  margin-bottom: 35px;
+}
+
+.adminIndex-dashboard-wrap > .title,
+.adminIndex-member-wrap > .title,
+.adminIndex-community-wrap > .title,
+.adminIndex-product-wrap > .title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.adminIndex-dashboard-wrap > .title h2,
+.adminIndex-member-wrap > .title h2,
+.adminIndex-community-wrap > .title h2,
+.adminIndex-product-wrap > .title h2 {
+  position: relative;
+  margin: 0;
+  padding-left: 13px;
+  font-size: 21px;
+  font-weight: 700;
+  color: #222222;
+}
+
+.adminIndex-dashboard-wrap > .title h2::before,
+.adminIndex-member-wrap > .title h2::before,
+.adminIndex-community-wrap > .title h2::before,
+.adminIndex-product-wrap > .title h2::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 4px;
+  height: 20px;
+  border-radius: 3px;
+  background-color: #4d75d8;
+  transform: translateY(-50%);
+}
+
+/* 주요 현황 카드 그리드 */
+.adminIndex-summary-list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.adminIndex-summary-card {
+  display: flex;
+  min-height: 115px;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--bg-surface);
+  border: 1px solid #e4e8ee;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.adminIndex-summary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.08);
+}
+
+.adminIndex-summary-card span {
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #777777;
+}
+
+.adminIndex-summary-card strong {
+  font-size: 24px;
+  font-weight: 700;
+  color: #222222;
+}
+
+/* 대시보드 2열 카드 레이아웃 */
+.adminIndex-member-con,
+.adminIndex-community-con,
+.adminIndex-product-con {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.adminIndex-card {
+  min-width: 0;
+  min-height: 260px;
+  padding: 24px;
+  background-color: var(--bg-surface);
+  border: 1px solid #e4e8ee;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+.adminIndex-card h3 {
+  margin: 0 0 22px;
+  padding-bottom: 14px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333333;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* 리스트 & 차트 영역 */
+.adminIndex-member-left-con ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+}
+
+.adminIndex-member-left-con li {
+  display: flex;
+  min-height: 44px;
+  padding: 0 15px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8f9fb;
+  border-radius: 7px;
+  font-size: 14px;
+  color: #555555;
+  box-sizing: border-box;
+}
+
+.adminIndex-member-left-con li::before {
+  content: "•";
+  margin-right: 8px;
+  font-size: 18px;
+  color: #4d75d8;
+}
+
+.adminIndex-chart {
+  display: flex;
+  width: 100%;
+  min-height: 180px;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fb;
+  border: 1px dashed #cfd5df;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #999999;
+  box-sizing: border-box;
+}
+
+.adminIndex-member-right-con canvas,
+.adminIndex-community-right-con canvas,
+.adminIndex-product-right-con canvas {
+  width: 100% !important;
+  max-height: 210px;
+}
+
+.adminIndex-community-left-con ul,
+.adminIndex-product-left-con ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.adminIndex-community-left-con li,
+.adminIndex-product-left-con li {
+  display: grid;
+  min-height: 46px;
+  padding: 10px 8px;
+  grid-template-columns: 38px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 14px;
+  color: #555555;
+  box-sizing: border-box;
+}
+
+.adminIndex-community-left-con li:last-child,
+.adminIndex-product-left-con li:last-child {
+  border-bottom: none;
+}
+
+.adminIndex-community-left-con li:hover,
+.adminIndex-product-left-con li:hover {
+  background-color: #f8f9fb;
+}
+
+.adminIndex-community-left-con .rank,
+.adminIndex-product-left-con .rank {
+  font-weight: 700;
+  color: #4d75d8;
+}
+
+.adminIndex-community-left-con .item-title,
+.adminIndex-product-left-con .item-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adminIndex-community-left-con .item-count,
+.adminIndex-product-left-con .item-count {
+  font-size: 13px;
+  color: #888888;
+}
+
+.adminIndex-empty {
+  display: flex;
+  min-height: 170px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #999999;
+}
+
+/* =====================================================
+   3. 공통 및 대시보드 반응형 스타일 (Mobile / Tablet)
+===================================================== */
+@media screen and (max-width: 1300px) {
+  .adminIndex-summary-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 900px) {
+  /* 모바일/태블릿 시 공통 레이아웃 마진 제거 */
+  .admin-main,
+  .admin-page-container {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px 16px;
+  }
+
+  /* 대시보드 카드 1열 전환 */
+  .adminIndex-member-con,
+  .adminIndex-community-con,
+  .adminIndex-product-con {
+    grid-template-columns: 1fr;
+  }
+
+  .adminIndex-summary-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .adminIndex-top-con {
+    padding: 22px 20px;
+  }
+
+  .adminIndex-top .title h1 {
+    font-size: 23px;
+  }
+
+  .adminIndex-summary-list {
+    grid-template-columns: 1fr;
+  }
+}

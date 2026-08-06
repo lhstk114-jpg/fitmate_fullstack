@@ -1,0 +1,111 @@
+@import url("../../common/reset.css");
+
+.product-list {
+  width: 100%;
+  min-height: 80vh;
+  background: #f8f9fb;
+  padding: 40px 0;
+}
+
+.product-list-con {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+
+/* 상품 없음 */
+.no-product {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 100px 0;
+  color: #888;
+  font-size: 18px;
+}
+
+
+.product-card {
+  width: 260px;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+/* 상품 이미지 */
+.product-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  background: #f5f5f5;
+}
+
+
+/* 이미지 없을 때 */
+.product-card > div {
+  width: 100%;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f6f8;
+  color: #999;
+  font-size: 14px;
+}
+
+
+/* 상품명 */
+.product-card h3 {
+  margin: 18px 18px 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #222;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* 가격 */
+.product-card p {
+  margin: 0 18px 20px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #2563eb;
+}
+/* 반응형 */
+@media (max-width: 1200px) {
+  .product-list {
+    width: 90%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .product-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

@@ -1,0 +1,333 @@
+@charset "UTF-8";
+
+/* =====================================================
+   챗봇 관리 페이지 전용 스타일 (admin-chat.css)
+   * admin-member.css 의 테마 변수 및 기본 레이아웃을 상속받습니다.
+===================================================== */
+
+/* -----------------------------------------------------
+   1. 전체 Layout Container
+----------------------------------------------------- */
+.admin-chat {
+  position: relative;
+  width: calc(100% - var(--sidebar-width, 260px));
+  min-height: calc(100vh - var(--header-height, 70px));
+  margin-left: var(--sidebar-width, 260px);
+  margin-top: var(--header-height, 70px);
+  padding: 32px;
+  box-sizing: border-box;
+  background-color: var(--bg-main, #f5f7fb);
+  transition:
+    margin-left 0.3s ease,
+    width 0.3s ease;
+}
+
+.admin-chat .admin-chat-con {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* -----------------------------------------------------
+   2. Title + Insert Button
+----------------------------------------------------- */
+.admin-chat .admin-chat-title-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.admin-chat .admin-chat-title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text-main, #111827);
+}
+
+/* 상단 버튼 스타일 (예: 추가버튼 등) */
+.admin-chat .chatInsert button {
+  height: 40px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color, #2563eb);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+  transition: all 0.2s ease;
+}
+
+.admin-chat .chatInsert button:hover {
+  background-color: var(--primary-hover, #1d4ed8);
+}
+
+/* -----------------------------------------------------
+   3. Header (필터 + 검색창)
+----------------------------------------------------- */
+.admin-chat .header-con {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.admin-chat .search {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.admin-chat .search .filters form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-chat .search select {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--border-color, #d1d5db);
+  border-radius: 8px;
+  background-color: var(--bg-surface, #ffffff);
+  color: var(--text-main, #111827);
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.admin-chat .search select:focus {
+  border-color: var(--primary-color, #2563eb);
+}
+
+.admin-chat .search input[type="text"] {
+  width: 220px;
+  height: 40px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  border: 1px solid var(--border-color, #d1d5db);
+  border-radius: 8px;
+  background-color: var(--bg-surface, #ffffff);
+  color: var(--text-main, #111827);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.admin-chat .search input[type="text"]::placeholder {
+  color: var(--text-muted, #9ca3af);
+}
+
+.admin-chat .search input[type="text"]:focus {
+  border-color: var(--primary-color, #2563eb);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.admin-chat .search input[type="submit"] {
+  height: 40px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color, #2563eb);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.admin-chat .search input[type="submit"]:hover {
+  background-color: var(--primary-hover, #1d4ed8);
+}
+
+/* -----------------------------------------------------
+   4. Chat List Container
+----------------------------------------------------- */
+.admin-chat .chatList {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 10px;
+  background-color: var(--bg-surface, #ffffff);
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
+}
+
+/* -----------------------------------------------------
+   5. Grid Layout & Item Style (분리 적용)
+----------------------------------------------------- */
+
+/* 기존 5개 열 스타일 (검색단어, 답변, 수정, 답변예약어보기, 삭제) */
+.admin-chat .chatList-head,
+.admin-chat .chatList-body {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1fr 1.2fr 0.8fr;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+/* 새로 추가하신 4개 열 스타일 (답변예약어, 내용, 수정, 삭제) */
+.admin-chat .chatList-answer-head,
+.admin-chat .chatList-answer-body {
+  display: grid;
+  grid-template-columns: 1.5fr 3.5fr 1fr 1fr;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.admin-chat .chatList-head li,
+.admin-chat .chatList-body li,
+.admin-chat .chatList-answer-head li,
+.admin-chat .chatList-answer-body li {
+  padding: 15px 10px;
+  overflow: hidden;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 헤더 영역 공통 */
+.admin-chat .chatList-head,
+.admin-chat .chatList-answer-head {
+  border-bottom: 2px solid var(--border-color, #e5e7eb);
+  background-color: var(--bg-subtle, #f8fafc);
+  color: var(--text-main, #111827);
+  font-weight: 700;
+}
+
+/* 데이터 바디 영역 공통 */
+.admin-chat .chatList-body,
+.admin-chat .chatList-answer-body {
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  background-color: var(--bg-surface, #ffffff);
+  color: var(--text-sub, #4b5563);
+  transition: background-color 0.2s ease;
+}
+
+.admin-chat .chatList-body:last-child,
+.admin-chat .chatList-answer-body:last-child {
+  border-bottom: none;
+}
+
+.admin-chat .chatList-body:hover,
+.admin-chat .chatList-answer-body:hover {
+  background-color: #f9fafb;
+}
+
+/* 목록 내부 일반 버튼 스타일 (수정 등) */
+.admin-chat .chatList-body button,
+.admin-chat .chatList-answer-body button {
+  padding: 6px 14px;
+  border: 1px solid var(--border-color, #d1d5db);
+  border-radius: 6px;
+  background-color: var(--bg-surface, #ffffff);
+  color: var(--text-sub, #4b5563);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-chat .chatList-body button:hover,
+.admin-chat .chatList-answer-body button:hover {
+  border-color: var(--primary-color, #2563eb);
+  background-color: var(--primary-color, #2563eb);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+}
+
+/* 삭제 버튼 전용 스타일 (위험/경고 색상) */
+.admin-chat .chatList-body li:last-child button,
+.admin-chat .chatList-answer-body li:last-child button {
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+.admin-chat .chatList-body li:last-child button:hover,
+.admin-chat .chatList-answer-body li:last-child button:hover {
+  border-color: #dc2626;
+  background-color: #dc2626;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.2);
+}
+
+/* -----------------------------------------------------
+   6. Pagination Foot Area
+----------------------------------------------------- */
+.admin-chat .chatList-foot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 20px 10px;
+  list-style: none;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+  background-color: var(--bg-surface, #ffffff);
+}
+
+/* -----------------------------------------------------
+   7. Empty Data Area
+----------------------------------------------------- */
+.admin-chat .chatList-body-none {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-muted, #9ca3af);
+  font-size: 14px;
+  background-color: var(--bg-surface, #ffffff);
+}
+
+/* -----------------------------------------------------
+   8. Responsive
+----------------------------------------------------- */
+@media screen and (max-width: 900px) {
+  .admin-chat {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .admin-chat .admin-chat-title-con {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .admin-chat .chatInsert button {
+    width: 100%;
+  }
+  .admin-chat .header-con {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .admin-chat .search .filters form {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .admin-chat .search input[type="text"] {
+    width: 100%;
+  }
+  .admin-chat .chatList-head,
+  .admin-chat .chatList-body,
+  .admin-chat .chatList-answer-head,
+  .admin-chat .chatList-answer-body {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,0 +1,274 @@
+/* ===========================
+   CommunityMain.css
+=========================== */
+
+/* ---------- 전체 ---------- */
+
+.comMain {
+  flex: 1;
+  min-width: 0;
+  margin: 10px 10px 10px 10px;
+  box-sizing: border-box;
+}
+
+.comMain-wrap {
+  width: 1400px; /* 지정하신 너비 */
+  margin: 30px auto; /* 위아래 여백은 주고, 좌우는 auto로 설정하여 중앙 정렬 */
+  box-sizing: border-box;
+}
+
+/* ---------- 상단 대시보드 레이아웃 (3개 카드 가로 3분할 & 동일 크기) ---------- */
+
+.comMain-top {
+  margin-bottom: 30px;
+}
+
+.comMain-dashboard-layout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.comMain-top-left,
+.comMain-top-right {
+  display: contents;
+}
+
+.comMain-dashboard-layout .board-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.comMain-dashboard-layout .board-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ---------- 본문 (게시판 그리드: 3열) ---------- */
+
+.comMain-board-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* ---------- 카드 공통 ---------- */
+
+.board-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.board-card-header {
+  padding: 14px 18px;
+  background: #0d1b2a;
+  border-bottom: 1px solid #ddd;
+}
+
+.board-card-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.board-card-body {
+  min-height: 220px;
+}
+
+/* ---------- 게시글 목록 ---------- */
+
+.board-card-body ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.board-card-body li {
+  border-bottom: 1px solid #eee;
+}
+
+.board-card-body li:last-child {
+  border-bottom: none;
+}
+
+.board-card-body a.board-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  color: #333;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.board-card-body a.board-item:hover {
+  background: #f8f9fa;
+}
+
+/* 게시글 내용 영역 (제목 + 부가정보) */
+.board-item-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.board-item-title {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.board-card-body a.board-item:hover .board-item-title {
+  font-weight: bold;
+}
+
+/* 작성자 및 조회수 영역 */
+.board-item-sub {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  color: #888;
+}
+
+.board-card-empty,
+.comMain-loading {
+  padding: 80px 0;
+  text-align: center;
+  color: #999;
+}
+
+/* ---------- 지역별 날씨 카드 스타일 ---------- */
+
+.weather-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+}
+
+.weather-city-select {
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.weather-card-wrap .weather-card-body {
+  padding: 16px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-slide {
+  text-align: center;
+}
+
+.weather-slide-city {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.weather-slide-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.weather-slide-temp {
+  margin-top: 4px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #0d1b2a;
+}
+
+.weather-slide-desc {
+  margin-top: 2px;
+  color: #666;
+  font-size: 12px;
+}
+
+.weather-slide-empty {
+  padding: 20px 0;
+  text-align: center;
+  color: #999;
+  font-size: 13px;
+}
+
+/* ---------- 추천 운동 ---------- */
+
+.recommend-card-body {
+  padding: 20px !important;
+}
+
+/* ---------- 운동 루틴 ---------- */
+
+.routine-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.routine-card-body {
+  padding: 20px !important;
+}
+
+.routine-card-img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+}
+
+/* ---------- 반응형 ---------- */
+
+@media (max-width: 1200px) {
+  .comMain-dashboard-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .comMain-board-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .comMain {
+    margin: 20px 15px;
+  }
+  .comMain-dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+  .comMain-board-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 썸네일 */
+.board-item-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #f0f0f0;
+}
+
+.board-item-thumb-empty {
+  background: #fff;
+}

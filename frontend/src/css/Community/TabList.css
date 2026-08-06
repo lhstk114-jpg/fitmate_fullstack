@@ -1,0 +1,164 @@
+/* =====================================================
+   탭 관리 전체 컨테이너
+===================================================== */
+.tabList {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 20px; /* 상단 게시글 관리 목록과의 여백 */
+}
+
+.tabList-con {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 28px 30px;
+  border: 1px solid #e4e8ee;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   상단 제목 및 버튼 배치
+===================================================== */
+.tabList-con {
+  position: relative;
+}
+
+.tabList-con h1 {
+  margin: 0 0 20px 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #222222;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eeeeee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabList-con button {
+  position: absolute;
+  top: 24px;
+  right: 30px;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #0d1b2a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.tabList-con button:hover {
+  background: #3b6ea8;
+}
+
+/* =====================================================
+   탭 목록 테이블
+===================================================== */
+.tabList-con table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.tabList-con thead {
+  background: #f8fafc;
+}
+
+.tabList-con th,
+.tabList-con td {
+  padding: 15px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.tabList-con th {
+  color: #111827;
+  font-weight: 700;
+  text-align: center;
+}
+
+.tabList-con tbody tr {
+  transition: background-color 0.2s;
+}
+
+.tabList-con tbody tr:hover {
+  background: #f9fafb;
+}
+
+.tabList-con tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 열 너비 설정 및 텍스트 정렬 */
+.tabList-con th:nth-child(1),
+.tabList-con td:nth-child(1) {
+  width: 250px;
+  text-align: center;
+  font-weight: 600;
+  color: #1f2937;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+/* 탭 이름 클릭 유도 (호버 효과) */
+.tabList-con td:nth-child(1):hover {
+  color: #3b6ea8;
+  text-decoration: underline;
+}
+
+.tabList-con th:nth-child(2),
+.tabList-con td:nth-child(2) {
+  text-align: left;
+  color: #555555;
+  padding-left: 24px;
+}
+
+/* =====================================================
+   로딩 및 빈 데이터 안내 문구
+===================================================== */
+.tabList-con > p {
+  padding: 40px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* =====================================================
+   반응형 대응
+===================================================== */
+@media screen and (max-width: 600px) {
+  .tabList-con {
+    padding: 20px 15px;
+  }
+
+  .tabList-con button {
+    top: 15px;
+    right: 15px;
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+
+  .tabList-con th:nth-child(1),
+  .tabList-con td:nth-child(1) {
+    width: 130px;
+  }
+
+  .tabList-con th:nth-child(2),
+  .tabList-con td:nth-child(2) {
+    padding-left: 14px;
+  }
+}

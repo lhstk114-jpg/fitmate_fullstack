@@ -1,0 +1,473 @@
+/* ==========================================
+   Global & Dark Navy Theme Variables
+   shopIndex
+   ========================================== */
+   :root {
+    --bg-dark-main: #0a1220;
+    --bg-dark-card: #131f33;
+    --bg-dark-hover: #1c2c47;
+    --text-main: #f1f5f9;
+    --text-sub: #94a3b8;
+    --text-muted: #64748b;
+    --accent-blue: #38bdf8;
+    --accent-cyan: #06b6d4;
+    --accent-glow: rgba(56, 189, 248, 0.25);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-active: rgba(56, 189, 248, 0.4);
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+  }
+  
+  .shopIndex {
+    background-color: var(--bg-dark-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 40px 20px 80px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  .shopIndex-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+  
+  /* ==========================================
+     1. Banner Swiper (1150 x 760 Ratio)
+     ========================================== */
+  .shopIndex-top {
+    width: 100%;
+  }
+  
+  .shop-slides-container {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--border-color);
+  }
+  
+  .banner-slide-link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+  }
+  
+  .banner-img-wrapper {
+    position: relative;
+    width: 100%;
+    /* 1150:760 비율 고정 */
+    aspect-ratio: 1150 / 760;
+    max-height: 520px; /* 대화면에서 너무 커지는 것 방지 */
+    background-color: var(--bg-dark-card);
+  }
+  
+  .banner-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .banner-slide-link:hover .banner-img-wrapper img {
+    transform: scale(1.03);
+  }
+  
+  /* 배너 텍스트 오버레이 */
+  .banner-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    background: linear-gradient(to top, rgba(10, 18, 32, 0.95) 0%, rgba(10, 18, 32, 0.4) 60%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .banner-overlay .badge {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    color: #040914;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+  }
+  
+  .banner-overlay h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .banner-overlay p {
+    font-size: 1rem;
+    color: var(--text-sub);
+    margin: 0;
+  }
+  
+  /* Swiper 버튼 및 내비게이션 다크 테마 커스텀 */
+  .shop-banner-swiper .swiper-button-next,
+  .shop-banner-swiper .swiper-button-prev {
+    color: var(--text-main);
+    background: rgba(10, 18, 32, 0.6);
+    backdrop-filter: blur(8px);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+  }
+  
+  .shop-banner-swiper .swiper-button-next:after,
+  .shop-banner-swiper .swiper-button-prev:after {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .shop-banner-swiper .swiper-pagination-bullet {
+    background: #ffffff;
+    opacity: 0.4;
+  }
+  
+  .shop-banner-swiper .swiper-pagination-bullet-active {
+    background: var(--accent-blue);
+    opacity: 1;
+    width: 24px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  /* ==========================================
+     2. Common Section Header
+     ========================================== */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+  }
+  
+  .section-header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+  }
+  
+  .section-sub {
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    margin-top: 6px;
+  }
+  
+  .view-more {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  
+  .view-more:hover {
+    color: var(--accent-cyan);
+  }
+  
+  /* ==========================================
+     3. Trainer Section
+     ========================================== */
+  .trainer-section {
+    width: 100%;
+  }
+  
+  .trainer-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  
+  .trainer-card {
+    background-color: var(--bg-dark-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .trainer-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-active);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+  }
+  
+  .trainer-img-box {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin-bottom: 16px;
+  }
+  
+  .trainer-img-box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-blue);
+  }
+  
+  .trainer-status-badge {
+    position: absolute;
+    bottom: 0;
+    right: -4px;
+    background-color: var(--accent-cyan);
+    color: #040914;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  
+  .trainer-info h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+  }
+  
+  .trainer-title {
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    font-weight: 400;
+  }
+  
+  .specialty {
+    color: var(--accent-blue);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+  
+  .trainer-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--text-sub);
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .cert-tag {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    color: var(--text-main);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .trainer-btn {
+    width: 100%;
+    padding: 10px 0;
+    background-color: var(--bg-dark-hover);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .trainer-card:hover .trainer-btn {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    color: #040914;
+    border-color: transparent;
+  }
+  
+  /* 빈 트레이너 카드 스타일 */
+  .empty-trainer-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 280px;
+    color: var(--text-muted);
+  }
+  
+  .empty-profile {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px dashed var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+  
+  /* ==========================================
+     4. Product Grid Section
+     ========================================== */
+  .shopIndex-bottom-productList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .shopIndex-bottom .product-card {
+    background-color: var(--bg-dark-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .shopIndex-bottom .product-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-active);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .product-thumb-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--bg-dark-hover);
+    overflow: hidden;
+  }
+  
+  .product-thumb-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  
+  .product-card:hover .product-thumb-container img {
+    transform: scale(1.05);
+  }
+  
+  /* 카드 호버시 표시되는 장바구니/좋아요 액션 버튼 */
+  .shopIndex-bottom .product-hover-actions {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .product-card:hover .product-hover-actions {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .shopIndex-bottom .action-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(10, 18, 32, 0.85);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--border-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .action-btn:hover {
+    background-color: var(--accent-blue);
+  }
+  
+  .shopIndex-bottom .product-details {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-grow: 1;
+  }
+  
+  .shopIndex-bottom .product-category {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+  
+  .shopIndex-bottom .product-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.4;
+    height: 2.8em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .shopIndex-bottom .product-price-box {
+    margin-top: auto;
+    padding-top: 8px;
+  }
+  
+  .shopIndex-bottom .product-price {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+  }
+  
+  .shopIndex-bottom .product-price .unit {
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin-left: 2px;
+    color: var(--text-main);
+  }
+  
+  /* ==========================================
+     Responsive Web Design
+     ========================================== */
+  @media (max-width: 1024px) {
+    .trainer-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .shopIndex-bottom-productList {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .banner-overlay h2 {
+      font-size: 1.3rem;
+    }
+    .banner-overlay p {
+      font-size: 0.85rem;
+    }
+    .trainer-list {
+      grid-template-columns: 1fr;
+    }
+    .shopIndex-bottom-productList {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }

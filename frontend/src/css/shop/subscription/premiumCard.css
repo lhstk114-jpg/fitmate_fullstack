@@ -1,0 +1,154 @@
+.premium-card-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 32px 28px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #1e2029 0%, #111218 100%);
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.premium-badge {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff5e62, #ff9966);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.premium-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(90deg, #fff, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.premium-subtitle {
+  color: #94a3b8;
+  font-size: 14px;
+  margin: 6px 0 24px 0;
+}
+
+.billing-toggle {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 4px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.discount-tag {
+  background: #ef4444;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 4px;
+}
+
+.price-box {
+  margin-bottom: 28px;
+}
+
+.price-amount {
+  font-size: 38px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.price-unit {
+  font-size: 16px;
+  color: #94a3b8;
+  margin-left: 4px;
+}
+
+.yearly-note {
+  font-size: 12px;
+  color: #38bdf8;
+  margin-top: 4px;
+}
+
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+  text-align: left;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.check-icon {
+  background: rgba(37, 99, 235, 0.2);
+  color: #60a5fa;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  margin-right: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.benefit-text strong {
+  display: block;
+  font-size: 15px;
+  color: #f1f5f9;
+}
+
+.benefit-text small {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.subscribe-cta-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  transition: transform 0.1s ease;
+}
+
+.subscribe-cta-btn:hover {
+  transform: translateY(-2px);
+}

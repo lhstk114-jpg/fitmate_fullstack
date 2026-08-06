@@ -1,0 +1,131 @@
+@import "../../../css/common/reset.css";
+.order-detail-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+
+.order-detail-page h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+
+.order-detail-page h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+/* 주문 기본 정보 */
+.order-info {
+  background: #f8f8f8;
+  padding: 18px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.order-info p {
+  margin: 8px 0;
+  color: #555;
+}
+
+
+/* 상품 목록 */
+.order-product-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+
+.order-product-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.order-product-list li span:first-child {
+  flex: 1;
+  font-weight: 600;
+}
+
+
+.order-product-list li span:nth-child(2) {
+  width: 80px;
+  text-align: center;
+  color: #777;
+}
+
+
+.order-product-list li span:last-child {
+  width: 120px;
+  text-align: right;
+  font-weight: 600;
+}
+
+
+/* 정보 영역 공통 */
+.buyer-info,
+.payment-info,
+.delivery-info {
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+
+.buyer-info p,
+.payment-info p,
+.delivery-info p {
+  margin: 10px 0;
+  color: #555;
+}
+
+
+/* 결제 금액 강조 */
+.payment-info p:last-child {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+}
+
+
+/* 모바일 */
+@media (max-width: 600px) {
+
+  .order-detail-page {
+    margin: 20px;
+    padding: 20px;
+  }
+
+
+  .order-product-list li {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+
+  .order-product-list li span:first-child {
+    width: 100%;
+  }
+
+
+  .order-product-list li span:nth-child(2),
+  .order-product-list li span:last-child {
+    width: auto;
+  }
+
+}

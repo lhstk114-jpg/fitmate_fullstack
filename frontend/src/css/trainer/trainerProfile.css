@@ -1,0 +1,180 @@
+.trainer-profile-container {
+  min-height: 100vh;
+  padding: 120px 40px 60px;
+  background: #f7f8fa;
+}
+
+/* 전체 카드 */
+.profile-card {
+  max-width: 850px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* 헤더 */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.profile-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 14px;
+}
+
+/* 입력 영역 */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* input textarea */
+.form-group input,
+.form-group textarea {
+
+  width: 100%;
+  padding: 14px 16px;
+
+  border: 1px solid #ddd;
+  border-radius: 12px;
+
+  font-size: 15px;
+  outline: none;
+
+  transition: 0.2s;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+  border-color: #111;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+
+}
+
+.form-group textarea {
+  resize: none;
+  line-height: 1.6;
+}
+
+/* 보기 모드 텍스트 */
+.read-only-text {
+  min-height: 45px;
+  padding: 14px 16px;
+  background: #f8f8f8;
+  border-radius: 12px;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.read-only-text.multiline {
+  white-space: pre-line;
+}
+
+/* 버튼 공통 */
+.btn {
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 13px 25px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+/* 수정 버튼 */
+.btn-edit {
+
+  background: #111;
+  color: white;
+
+}
+
+.btn-edit:hover {
+  background: #333;
+}
+
+/* 하단 버튼 */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* 취소 */
+.btn-cancel {
+  background: #eee;
+  color: #555;
+}
+
+.btn-cancel:hover {
+  background: #ddd;
+}
+
+/* 저장 */
+.btn-save {
+  background: #111;
+  color: white;
+}
+
+.btn-save:hover {
+  background: #333;
+}
+
+
+
+/* 반응형 */
+@media(max-width:768px) {
+
+  .trainer-profile-container {
+    padding: 100px 20px 40px;
+  }
+
+  .profile-card {
+    padding: 25px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .btn-edit {
+    width: 100%;
+  }
+
+}

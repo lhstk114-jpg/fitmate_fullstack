@@ -1,0 +1,178 @@
+@import "../../../css/common/reset.css";
+
+/* ==========================================
+   OrderMembership 컴포넌트 스타일링
+   ========================================== */
+
+/* 메인 컨테이너 */
+.order-membership {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.order-membership-con {
+  width: 100%;
+  max-width: 640px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 36px 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eef2f6;
+}
+
+/* 헤더 타이틀 */
+.order-membership-con h2 {
+  font-size: 1.625rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.order-membership-con h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+/* 구분선 */
+.order-membership-con hr {
+  border: none;
+  border-top: 1px solid #f1f5f9;
+  margin: 24px 0;
+}
+
+/* 1. 달력 박스 영역 */
+.calendar-box {
+  background: #fafafa;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+/* 선택된 날짜 안내 */
+.selected-date {
+  background-color: #3a69ec25;
+  border: 1px solid #1a23c99d;
+  color: #000000;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.selected-date p {
+  margin-top: 6px;
+  color: #2e1ec2;
+  font-size: 0.9rem;
+}
+
+/* 2. 결제 상품 카드 */
+.order-product {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.order-product p {
+  font-size: 0.95rem;
+  color: #475569;
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-product p:last-child {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed #cbd5e1;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2563eb; /* 결제 금액 포인트 컬러 */
+}
+
+/* 3. 자동결제 약관 동의 (PREMIUM 전용) */
+.order-membership-con label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  user-select: none;
+}
+
+.order-membership-con label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+.payment-info {
+  font-size: 0.825rem;
+  color: #64748b;
+  margin-top: 8px;
+  margin-left: 28px;
+  line-height: 1.4;
+}
+
+/* 4. 결제하기 버튼 */
+.order-payment {
+  margin-top: 32px;
+}
+
+.order-payment button {
+  width: 100%;
+  padding: 16px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.order-payment button:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.order-payment button:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.order-payment button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* 반응형 모바일 UI */
+@media (max-width: 480px) {
+  .order-membership-con {
+    padding: 24px 18px;
+    border-radius: 12px;
+  }
+
+  .order-membership-con h2 {
+    font-size: 1.35rem;
+  }
+
+  .order-product {
+    padding: 16px;
+  }
+}

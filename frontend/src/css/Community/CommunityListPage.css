@@ -1,0 +1,6 @@
+/* 부모 컨테이너 스타일 */
+.community-page-wrapper {
+  display: flex; /* 자식 요소들을 가로로 나란히 배치 */
+  align-items: flex-start; /* 상단 정렬 */
+  width: 100%;
+}

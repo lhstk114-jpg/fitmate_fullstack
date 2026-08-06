@@ -1,0 +1,266 @@
+/* ==========================================
+   1. 메인 레이아웃 및 탭 메뉴
+========================================== */
+.reservation-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  color: #2c3e50;
+}
+
+.tab-menu {
+  display: flex;
+  gap: 12px;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 32px;
+}
+
+.tab-menu button {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #64748b;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: -2px;
+}
+
+.tab-menu button.active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+.tab-menu button:hover:not(.active) {
+  color: #1e293b;
+}
+
+/* ==========================================
+   2. PT 예약 신청 페이지 (Reservation.jsx)
+========================================== */
+.reservation-con h2 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 28px;
+  color: #0f172a;
+}
+
+.reservation section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.reservation section h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 이용권 선택 섹션 */
+.no-product {
+  color: #ef4444;
+  font-size: 14px;
+  padding: 12px;
+  background-color: #fef2f2;
+  border-radius: 8px;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.product-card {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: #f8fafc;
+}
+
+.product-card:hover {
+  border-color: #93c5fd;
+  transform: translateY(-2px);
+}
+
+.product-card.active {
+  border-color: #2563eb;
+  background-color: #eff6ff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.product-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: #1e293b;
+}
+
+.product-card p {
+  font-size: 13px;
+  color: #64748b;
+  margin: 4px 0;
+}
+
+.product-card strong {
+  color: #2563eb;
+}
+
+/* 트레이너 선택 섹션 */
+.trainer-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.trainer-card {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #ffffff;
+}
+
+.trainer-card:hover {
+  border-color: #93c5fd;
+}
+
+.trainer-card.active {
+  border-color: #2563eb;
+  background-color: #eff6ff;
+}
+
+.trainer-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid #cbd5e1;
+}
+
+.trainer-card.active img {
+  border-color: #2563eb;
+}
+
+.trainer-card h4 {
+  font-size: 16px;
+  margin: 0 0 4px 0;
+  color: #0f172a;
+}
+
+.trainer-card p {
+  font-size: 12px;
+  color: #64748b;
+  margin: 2px 0;
+}
+
+/* 달력 및 시간 선택 영역 */
+.datetime-section .calendar-box {
+  margin-bottom: 24px;
+}
+
+.time-slot-box h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 12px;
+}
+
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.time-btn {
+  padding: 10px 18px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #334155;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.time-btn:hover {
+  background-color: #f1f5f9;
+}
+
+.time-btn.active {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* 메모 영역 */
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* 하단 제출 버튼 */
+.reservation-action {
+  margin-top: 32px;
+}
+
+.reserve-submit-btn {
+  width: 100%;
+  padding: 18px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  transition: all 0.2s ease;
+}
+
+.reserve-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.reserve-submit-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.time-btn:disabled {
+  background: #e5e5e5;
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.8;
+}

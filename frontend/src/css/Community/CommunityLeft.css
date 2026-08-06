@@ -1,0 +1,82 @@
+.community-left {
+  width: 220px;
+  background: #fff;
+  border-right: 1px solid #eee;
+  padding: 15px 10px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.community-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.community-left > ul > li {
+  position: relative;
+  padding: 12px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #f2f2f2;
+  font-weight: 500;
+}
+
+/* 링크 기본 스타일 */
+.community-left a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+/* 현재 선택된 탭 강조 */
+.community-left a.active {
+  color: #0058b6;
+  font-weight: bold;
+}
+
+/* 탭 헤더 (텍스트와 화살표 정렬) */
+.tab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 토글로 열리는 서브 메뉴 (박스 테두리 제거 및 왼쪽 정렬 맞춤) */
+.overTab {
+  display: none;
+  list-style: none;
+  padding: 5px 0 5px 10px; /* 왼쪽 살짝 들여쓰기 혹은 출발선 맞춤 */
+  margin-top: 8px;
+  background: transparent; /* 배경 제거 */
+  border: none; /* 박스 테두리 제거 */
+  box-shadow: none; /* 그림자 제거 */
+}
+
+/* open 클래스가 붙으면 표시 */
+.overTab.open {
+  display: block;
+}
+
+/* 카테고리 항목 스타일 (밑줄 추가) */
+.overTab li {
+  padding: 8px 5px;
+  font-size: 0.9em;
+  border-bottom: 1px solid #f0f0f0; /* 항목 사이 은은한 밑줄 */
+}
+
+/* 마지막 항목은 밑줄 제거 (선택사항) */
+.overTab li:last-child {
+  border-bottom: none;
+}
+
+.overTab li:hover {
+  background-color: #f8f9fa; /* 마우스 올렸을 때 연한 배경 */
+  border-radius: 4px;
+}
+
+/* ★ 현재 선택된 카테고리 볼드 처리 및 색상 강조 */
+.overTab li a.active {
+  font-weight: bold;
+  color: #0d1b2a;
+}

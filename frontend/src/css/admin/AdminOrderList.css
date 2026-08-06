@@ -1,0 +1,182 @@
+@charset "UTF-8";
+
+/* =====================================================
+   관리자 주문/결제 리스트 페이지 전용 스타일 (admin-order.css)
+   * admin.css 의 테마 변수 및 기본 레이아웃을 상속받습니다.
+===================================================== */
+
+/* -----------------------------------------------------
+   1. Layout Container (외곽 메인 컨테이너)
+----------------------------------------------------- */
+.admin-order-page,
+.admin-order-list-page {
+  position: relative;
+  width: calc(100% - var(--sidebar-width, 260px));
+  min-height: calc(100vh - var(--header-height, 70px));
+  margin-left: var(--sidebar-width, 260px);
+  margin-top: var(--header-height, 70px);
+  padding: 32px;
+  box-sizing: border-box;
+  background-color: var(--bg-main, #f5f7fb);
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    sans-serif;
+  transition:
+    margin-left 0.3s ease,
+    width 0.3s ease;
+}
+
+.admin-order-con {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* -----------------------------------------------------
+   2. Header Area (제목 및 서브 영역)
+----------------------------------------------------- */
+.admin-order-title,
+.admin-order-header h2 {
+  margin: 0 0 24px 0;
+  padding-bottom: 16px;
+  color: var(--text-main, #111827);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* -----------------------------------------------------
+   3. Order Table Wrapper (주문/결제 테이블 감싸기)
+----------------------------------------------------- */
+.admin-order-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 12px;
+  background-color: var(--bg-surface, #ffffff);
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.05);
+}
+
+.admin-order-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text-sub, #4b5563);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* 테이블 헤더 */
+.admin-order-table thead {
+  background-color: var(--bg-subtle, #f8fafc);
+  border-bottom: 2px solid var(--border-color, #e5e7eb);
+}
+
+.admin-order-table th {
+  padding: 16px 14px;
+  color: var(--text-main, #111827);
+  font-size: 0.88rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* 테이블 바디 Row */
+.admin-order-table tbody tr {
+  height: 64px;
+  border-bottom: 1px solid var(--border-color, #f1f5f9);
+  transition: background-color 0.15s ease;
+}
+
+.admin-order-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.admin-order-table tbody tr:hover {
+  background-color: var(--bg-subtle, #f8fafc);
+}
+
+.admin-order-table td {
+  padding: 14px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* 주문 번호 / 금액 강조 */
+.admin-order-table td.order-id {
+  font-weight: 600;
+  color: var(--text-main, #111827);
+}
+
+.admin-order-table td.order-price {
+  font-weight: 700;
+  color: var(--primary-color, #2563eb);
+}
+
+/* 데이터가 없을 경우 처리 */
+.admin-order-table td[colspan] {
+  padding: 48px 0;
+  color: var(--text-muted, #9ca3af);
+  font-size: 0.95rem;
+}
+
+/* -----------------------------------------------------
+   4. Status Select Box & Badges (주문 상태)
+----------------------------------------------------- */
+.admin-order-table select {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color, #d1d5db);
+  border-radius: 8px;
+  background-color: var(--bg-surface, #ffffff);
+  color: var(--text-main, #111827);
+  font-size: 0.85rem;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-order-table select:focus {
+  border-color: var(--primary-color, #2563eb);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.admin-order-table select:hover {
+  border-color: var(--text-muted, #9ca3af);
+}
+
+/* -----------------------------------------------------
+   5. 반응형 미디어 쿼리 (900px / 600px)
+----------------------------------------------------- */
+@media screen and (max-width: 900px) {
+  .admin-order-page,
+  .admin-order-list-page {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding: 20px 16px;
+  }
+
+  .admin-order-table-wrapper {
+    box-shadow: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .admin-order-title,
+  .admin-order-header h2 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+  }
+
+  .admin-order-table th,
+  .admin-order-table td {
+    padding: 10px 8px;
+    font-size: 0.82rem;
+  }
+
+  .admin-order-table select {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+}

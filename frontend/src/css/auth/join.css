@@ -1,0 +1,260 @@
+@import url("../common/reset.css");
+
+/* ===========================
+   Join Container & Layout
+=========================== */
+
+/* 로그인 화면과 동일한 중앙 정렬 레이아웃 */
+.join {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+}
+
+/* 상단 로고 */
+.join-header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.join-header h1 {
+  margin: 0;
+}
+
+.join-header img {
+  max-width: 180px; /* 로고 크기 확대 */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 회원가입 카드 컨테이너 (크기 키움) */
+.join-con {
+  width: 100%;
+  max-width: 520px; /* 기존 420px -> 520px로 확장 */
+  background: #fff;
+  padding: 48px 40px; /* 내부 여백 확장 */
+  border-radius: 20px; /* 모서리 라운딩 살짝 추가 */
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* ===========================
+   List & Inputs
+=========================== */
+
+.join-con ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.join-con li {
+  margin-bottom: 20px; /* 항목 간격 확장 (16px -> 20px) */
+}
+
+/* 공통 Input & Select 스타일 (높이 및 폰트 확대) */
+.join-con input,
+.join-con select {
+  width: 100%;
+  height: 54px; /* 높이 확장 (48px -> 54px) */
+  padding: 0 18px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  font-size: 16px; /* 폰트 크기 증가 (15px -> 16px) */
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.join-con input[readOnly] {
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+.join-con input::placeholder {
+  color: #999;
+}
+
+.join-con input:focus,
+.join-con select:focus {
+  outline: none;
+  border-color: #4b7bec;
+  box-shadow: 0 0 6px rgba(75, 123, 236, 0.25);
+}
+
+/* select 감싸는 span 태그 */
+.join-con select {
+  cursor: pointer;
+}
+
+/* ===========================
+   1. Email + Check Button (li:nth-child(1))
+=========================== */
+
+/* 이메일 입력창과 중복확인 버튼 */
+.join-con li:nth-child(1) {
+  display: flex;
+  gap: 12px;
+}
+
+.join-con li:nth-child(1) input {
+  flex: 1;
+}
+
+.join-con li:nth-child(1) button {
+  width: 110px; /* 버튼 너비 확장 */
+  height: 54px; /* 입력창과 높이 통일 */
+  border: 1px solid #4b7bec;
+  background: #fff;
+  color: #4b7bec;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.join-con li:nth-child(1) button:hover {
+  background: #ecf2fe;
+}
+
+/* ===========================
+   2. Email Check Message (li:nth-child(2))
+=========================== */
+
+/* 중복체크 결과 메시지 */
+.join-con li:nth-child(2) {
+  margin-top: -10px;
+  margin-bottom: 22px;
+  padding-left: 4px;
+}
+
+.join-con li:nth-child(2) span {
+  font-size: 14px;
+  color: #666;
+}
+
+/* ===========================
+   3. Address Search (li.address-item)
+=========================== */
+
+.join-con li.address-item {
+  display: flex;
+  gap: 12px;
+}
+
+.join-con li.address-item input {
+  flex: 1;
+  background-color: #ffffff;
+}
+
+.join-con li.address-item button {
+  width: 110px;
+  height: 54px;
+  border: 1px solid #4b7bec;
+  background: #fff;
+  color: #4b7bec;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.join-con li.address-item button:hover {
+  background: #ecf2fe;
+}
+
+/* ===========================
+   4. Join Button + Login Link (li:last-child)
+=========================== */
+
+.join-con li:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+  margin-bottom: 0;
+}
+
+.join-con li:last-child button {
+  width: 100%;
+  height: 56px; /* 가입 버튼 높이 확대 */
+  border: none;
+  border-radius: 10px;
+  background: #4b7bec;
+  color: #fff;
+  font-size: 18px; /* 가입 버튼 글씨 확대 */
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.join-con li:last-child button:hover {
+  background: #3867d6;
+}
+
+.join-con li:last-child a {
+  text-align: center;
+  color: #4b7bec;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.join-con li:last-child a:hover {
+  text-decoration: underline;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media (max-width: 540px) {
+  .join {
+    padding: 24px 16px;
+  }
+
+  .join-header {
+    margin-bottom: 20px;
+  }
+
+  .join-header img {
+    max-width: 140px;
+  }
+
+  .join-con {
+    padding: 32px 20px;
+    border-radius: 16px;
+  }
+
+  .join-con input,
+  .join-con select {
+    height: 48px;
+    font-size: 15px;
+  }
+
+  .join-con li:last-child button {
+    height: 50px;
+    font-size: 16px;
+  }
+
+  .join-con li:nth-child(1) button,
+  .join-con li.address-item button {
+    height: 48px;
+    width: 95px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,160 @@
+name: CI/CD Pipeline to AWS EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # JOB 1: Backend / Frontend Docker 이미지 빌드 후 Docker Hub에 Push
+  # ---------------------------------------------------------------------------
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # GitHub 저장소 소스 체크아웃
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Docker Hub 로그인
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # Backend Docker 이미지 빌드
+      - name: Build backend image
+        run: |
+          docker build \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/fitmate-backend:latest \
+            ./backend
+
+      # Frontend Docker 이미지 빌드
+      - name: Build frontend image
+        run: |
+          docker build \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/fitmate-frontend:latest \
+            ./frontend
+
+      # Docker Hub에 이미지 Push
+      - name: Push Docker images
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/fitmate-backend:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/fitmate-frontend:latest
+
+  # ---------------------------------------------------------------------------
+  # JOB 2: docker-compose.yaml과 .env를 EC2에 복사한 뒤 배포
+  # ---------------------------------------------------------------------------
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+
+    steps:
+      # docker-compose.yaml을 가져오기 위해 저장소 체크아웃
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # GitHub Secrets를 사용해 EC2 배포용 .env 파일 생성
+      - name: Create production env file
+        shell: bash
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+
+          MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+
+          RABBITMQ_DEFAULT_USER: ${{ secrets.RABBITMQ_DEFAULT_USER }}
+          RABBITMQ_DEFAULT_PASS: ${{ secrets.RABBITMQ_DEFAULT_PASS }}
+
+          KAKAO_ADMIN_KEY: ${{ secrets.KAKAO_ADMIN_KEY }}
+          KAKAO_MAP_KEY: ${{ secrets.KAKAO_MAP_KEY }}
+          GOOGLE_TRANSLATE_API_KEY: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
+          EXERCISEDB_API_KEY: ${{ secrets.EXERCISEDB_API_KEY }}
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+          KAKAO_CLIENT_ID: ${{ secrets.KAKAO_CLIENT_ID }}
+          KAKAO_CLIENT_SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}
+
+          JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
+
+          FRONT_SERVER_URL: ${{ secrets.FRONT_SERVER_URL }}
+
+          BACKEND_API_SERVER_URL: ${{ secrets.BACKEND_API_SERVER_URL }}
+
+        run: |
+          {
+            printf 'DOCKERHUB_USERNAME=%s\n' "$DOCKERHUB_USERNAME"
+
+            printf 'MYSQL_DATABASE=%s\n' "$MYSQL_DATABASE"
+            printf 'MYSQL_ROOT_PASSWORD=%s\n' "$MYSQL_ROOT_PASSWORD"
+
+            printf 'RABBITMQ_DEFAULT_USER=%s\n' "$RABBITMQ_DEFAULT_USER"
+            printf 'RABBITMQ_DEFAULT_PASS=%s\n' "$RABBITMQ_DEFAULT_PASS"
+
+            printf 'KAKAO_ADMIN_KEY=%s\n' "$KAKAO_ADMIN_KEY"
+            printf 'KAKAO_MAP_KEY=%s\n' "$KAKAO_MAP_KEY"
+            printf 'GOOGLE_TRANSLATE_API_KEY=%s\n' "$GOOGLE_TRANSLATE_API_KEY"
+            printf 'EXERCISEDB_API_KEY=%s\n' "$EXERCISEDB_API_KEY"
+            printf 'OPENWEATHER_API_KEY=%s\n' "$OPENWEATHER_API_KEY"
+
+            printf 'GOOGLE_CLIENT_ID=%s\n' "$GOOGLE_CLIENT_ID"
+            printf 'GOOGLE_CLIENT_SECRET=%s\n' "$GOOGLE_CLIENT_SECRET"
+            printf 'NAVER_CLIENT_ID=%s\n' "$NAVER_CLIENT_ID"
+            printf 'NAVER_CLIENT_SECRET=%s\n' "$NAVER_CLIENT_SECRET"
+            printf 'KAKAO_CLIENT_ID=%s\n' "$KAKAO_CLIENT_ID"
+            printf 'KAKAO_CLIENT_SECRET=%s\n' "$KAKAO_CLIENT_SECRET"
+
+            printf 'JWT_SECRET_KEY=%s\n' "$JWT_SECRET_KEY"
+            printf 'FRONT_SERVER_URL=%s\n' "$FRONT_SERVER_URL"
+          } > .env
+
+      # EC2 배포 폴더 및 업로드 폴더 생성
+      - name: Prepare EC2 deployment directory
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            mkdir -p /home/ec2-user/fitmate/uploads
+
+      # docker-compose.yaml과 .env를 EC2에 복사
+      - name: Copy deployment files to EC2
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "docker-compose.yaml,.env"
+          target: "/home/ec2-user/fitmate"
+
+      # EC2에서 최신 Docker 이미지로 재배포
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          command_timeout: 30m
+          script: |
+            set -e
+
+            cd /home/ec2-user/fitmate
+
+            # Docker Hub에서 최신 이미지 다운로드
+            docker compose pull backend frontend
+
+            # MySQL, Redis, RabbitMQ, Backend, Frontend 전체 실행
+            docker compose up -d --remove-orphans
+
+            # 사용하지 않는 이전 Docker 이미지 정리
+            docker image prune -f
+
+            # 컨테이너 실행 상태 확인
+            docker compose ps

@@ -1,0 +1,143 @@
+/* =========================================================
+   CommonCalendar - 프리미엄 커스텀 CSS (네이비 톤앤매너)
+   ========================================================= */
+
+   .common-calendar {
+    width: 100%;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    background: #ffffff;
+    border-radius: 12px;
+  }
+  
+  /* 1. 상단 툴바 (Header Toolbar) */
+  .common-calendar .fc-header-toolbar {
+    margin-bottom: 16px !important;
+    padding: 4px;
+  }
+  
+  .common-calendar .fc-toolbar-title {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #1b2a4a;
+  }
+  
+  /* 2. 버튼 커스텀 (오늘, 월, 주, 일, <, >) */
+  .common-calendar .fc-button-primary {
+    background-color: #f1f5f9 !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #475569 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    padding: 6px 12px !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease;
+  }
+  
+  .common-calendar .fc-button-primary:hover {
+    background-color: #e2e8f0 !important;
+    color: #0f172a !important;
+  }
+  
+  .common-calendar .fc-button-active {
+    background-color: #1b2a4a !important;
+    border-color: #1b2a4a !important;
+    color: #ffffff !important;
+  }
+  
+  /* 3. 요일 헤더 (일~토) */
+  .common-calendar .fc-col-header-cell {
+    background-color: #f8fafc;
+    padding: 8px 0 !important;
+    border-color: #f1f5f9 !important;
+  }
+  
+  .common-calendar .fc-col-header-cell-cushion {
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+    text-decoration: none !important;
+  }
+  
+  /* 일요일, 토요일 색상 포인트 */
+  .common-calendar .fc-day-sun .fc-col-header-cell-cushion,
+  .common-calendar .fc-day-sun .fc-daygrid-day-number {
+    color: #ef4444 !important; /* 일요일 빨간색 */
+  }
+  
+  .common-calendar .fc-day-sat .fc-col-header-cell-cushion,
+  .common-calendar .fc-day-sat .fc-daygrid-day-number {
+    color: #3b82f6 !important; /* 토요일 파란색 */
+  }
+  
+  /* 4. 날짜 그리드 칸 */
+  .common-calendar .fc-theme-standard td,
+  .common-calendar .fc-theme-standard th {
+    border-color: #f1f5f9 !important;
+  }
+  
+  .common-calendar .fc-daygrid-day-number {
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+    padding: 4px 6px !important;
+    text-decoration: none !important;
+  }
+  
+  /* 5. 이벤트 뱃지 스타일링 (eventType 별 색상 구분) */
+  .common-calendar .fc-daygrid-event {
+    border-radius: 6px !important;
+    padding: 2px 6px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    margin-top: 2px !important;
+    cursor: pointer;
+  }
+  
+  /* 구독 일정 (SUBSCRIPTION) */
+  .calendar-event-subscription {
+    background-color: #e0e7ff !important;
+    color: #3730a3 !important;
+  }
+  
+  /* PT 일정 (PT) */
+  .calendar-event-pt {
+    background-color: #dbeafe !important;
+    color: #1e40af !important;
+  }
+  
+  /* 운동 기록 (WORKOUT) */
+  .calendar-event-workout {
+    background-color: #dcfce7 !important;
+    color: #166534 !important;
+  }
+  
+  /* 개인 일정 (PERSONAL) */
+  .calendar-event-personal {
+    background-color: #fef3c7 !important;
+    color: #92400e !important;
+  }
+  
+  /* 기본/기타 일정 (DEFAULT) */
+  .calendar-event-default {
+    background-color: #f1f5f9 !important;
+    color: #475569 !important;
+  }
+  
+  /* +more 더보기 버튼 스타일 */
+  .common-calendar .fc-daygrid-more-link {
+    font-size: 10px;
+    font-weight: 700;
+    color: #64748b;
+    text-decoration: none;
+  }
+  
+  /* 6. 컴팩트 모드 (메인페이지 미니 캘린더용) */
+  .compact-calendar .fc-daygrid-day-frame {
+    min-height: 48px !important; /* 높이를 작게 압축 */
+  }
+  
+  .compact-calendar .fc-scroller {
+    overflow: hidden !important;
+  }

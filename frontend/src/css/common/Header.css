@@ -1,0 +1,301 @@
+/* =========================
+   Header
+========================= */
+.header {
+  width: 100%;
+  height: 8rem;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+  z-index: 100;
+}
+
+.header-con {
+  width: min(1280px, calc(100% - 40px));
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* =========================
+   상단 네비게이션
+========================= */
+
+.nav-wrap {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 8rem;
+  margin: 0 auto;
+}
+
+/* flex-basis에 minmax 개념 적용 및 로고 공간 확보를 위해 z-index 추가 */
+.gnb-left,
+.gnb-right {
+  flex: 1 1 0%;
+  min-width: 0;
+  z-index: 1; 
+}
+.gnb-left {
+  padding-left: 6rem;
+}
+
+.gnb-right {
+  padding-right: 6rem;
+}
+
+.gnb-left > ul,
+.gnb-right > ul {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.2rem, 2vw, 2.8rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.gnb-right > ul {
+  justify-content: flex-end;
+}
+
+.gnb-left li,
+.gnb-right li {
+  display: flex;
+  align-items: center;
+}
+
+.gnb-left a,
+.gnb-left span,
+.gnb-right a,
+.header-logout-btn,
+.header-faq {
+  position: relative;
+
+  display: block;
+  padding: 1rem 0;
+
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+  white-space: nowrap;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.gnb-left a:hover,
+.gnb-right a:hover,
+.header-logout-btn:hover,
+.header-faq:hover{
+  color: #0d1b2a;
+}
+
+/* 메뉴 hover 밑줄 */
+
+.gnb-left a::after,
+.gnb-right a::after,
+.header-logout-btn::after,
+.header-faq::after {
+  content: "";
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+
+  width: 0;
+  height: 0.2rem;
+
+  background: #0d1b2a;
+
+  transform: translateX(-50%);
+  transition: width 0.2s ease;
+}
+
+.gnb-left a:hover::after,
+.gnb-right a:hover::after,
+.header-logout-btn:hover::after,
+.header-faq:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   가운데 로고
+========================= */
+
+.gnb-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: auto;
+}
+.gnb-logo a,
+.gnb-logo h1 {
+  display: block;
+}
+
+.gnb-logo img {
+  width: clamp(10rem, 15vw, 18rem);
+  height: auto;
+  object-fit: contain;
+}
+
+/* JSX의 인라인 width / height보다
+   CSS로 관리하는 것이 좋습니다. */
+
+/* =========================
+   로그아웃 버튼
+========================= */
+
+.header-logout-btn {
+  padding: 1rem 0;
+  background: transparent;
+}
+
+/* =========================
+   Depth 메뉴
+========================= */
+
+.header-con .header_depth {
+  position: absolute;
+  top:8rem;
+  left: 0;
+  z-index: 90;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-1rem);
+
+  transition:
+    opacity .25s ease,
+    transform .25s ease;
+}
+
+
+.header-con .header_depth.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+.header-con .header_depth > ul {
+  width: 18rem;
+
+  padding: 2rem;
+
+  background: rgba(255,255,255,.98);
+  border-radius: 0.8rem;
+
+  border: 1px solid #eef0f2;
+  box-shadow: 0 1rem 2.4rem rgba(13,27,42,.12);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.header-con .header_depth > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 12rem;
+  gap: 1rem;
+}
+
+.header-con .header_depth > ul > li > a:first-child {
+
+  color: #0d1b2a;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.header-con .header_depth a {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.header-con .header_depth a:hover {
+  color: #3b6ea8;
+  transform: translateX(0.4rem);
+}
+
+/* =========================
+   Header 반응형
+========================= */
+
+@media (max-width: 1024px) {
+  .header,
+  .nav-wrap {
+    height: 6.5rem;
+  }
+
+  .header-con .header_depth {
+    top: 6.5rem;
+  }
+
+  .gnb-left > ul,
+  .gnb-right > ul {
+    gap: 1rem;
+  }
+
+  .gnb-left a,
+  .gnb-left span,
+  .gnb-right a,
+  .header-logout-btn,
+  .header-faq {
+    font-size: 0.88rem;
+  }
+  .gnb-logo img {
+    width: 10rem;
+  }
+  .gnb-left {
+    padding-left: 3rem;
+  }
+  
+  .gnb-right {
+    padding-right: 3rem;
+  }
+  
+}
+
+/* 768px 이하 태블릿/모바일 반응형 */
+@media (max-width: 768px) {
+  .header-con {
+    width: calc(100% - 24px);
+  }
+
+  .gnb-left > ul,
+  .gnb-right > ul {
+    gap: 0.6rem;
+  }
+  .gnb-left {
+    padding-left:1rem;
+  }
+  
+  .gnb-right {
+    padding-right:1rem;
+  }
+  
+  .gnb-left a,
+  .gnb-left span,
+  .gnb-right a,
+  .header-logout-btn,
+  .header-faq {
+    font-size: 0.8rem;
+  }
+    /* 로고 축소 */
+    .gnb-logo img {
+      width: 8rem;
+    }
+  
+}

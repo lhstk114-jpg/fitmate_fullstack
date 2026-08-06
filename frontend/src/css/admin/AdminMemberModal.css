@@ -1,0 +1,193 @@
+/* ===========================
+   1. Modal Overlay (배경 검은 레이어)
+=========================== */
+.memberInsertModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* 은은한 암전 효과 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* ===========================
+   2. Modal Container (모달 본체)
+=========================== */
+.memberInsertModal-con {
+  width: 100%;
+  max-width: 480px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  animation: modalFadeIn 0.25s ease-out;
+}
+
+/* 등장 애니메이션 */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   3. Form List & Inputs
+=========================== */
+.memberInsertModal-con ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 각 입력 라인 (li) */
+.memberInsertModal-con ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+/* 라벨 (이름, 이메일, 비밀번호 등) */
+.memberInsertModal-con ul li > span:first-child {
+  font-size: 13px;
+  font-weight: 600;
+  color: #495057;
+}
+
+/* input & select 감싸는 span */
+.memberInsertModal-con ul li > span:nth-child(2) {
+  width: 100%;
+}
+
+/* 공통 input & select 스타일 */
+.memberInsertModal-con input[type="text"],
+.memberInsertModal-con input[type="email"],
+.memberInsertModal-con input[type="password"],
+.memberInsertModal-con select {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #212529;
+  outline: none;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.memberInsertModal-con input:focus,
+.memberInsertModal-con select:focus {
+  border-color: #4b7bec;
+  box-shadow: 0 0 0 3px rgba(75, 123, 236, 0.15);
+}
+
+/* ===========================
+   4. Specific Element Adjustments
+=========================== */
+
+/* 이메일 중복확인 라인 레이아웃 */
+.memberInsertModal-con ul li:nth-child(2) {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: 8px;
+  align-items: flex-end;
+}
+
+/* 라벨은 2칸 차지 */
+.memberInsertModal-con ul li:nth-child(2) > span:first-child {
+  grid-column: span 2;
+}
+
+/* 중복확인 버튼 */
+.memberInsertModal-con ul li:nth-child(2) > button {
+  height: 42px;
+  padding: 0 14px;
+  background-color: #eef2ff;
+  color: #4b7bec;
+  border: 1px solid #4b7bec;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.memberInsertModal-con ul li:nth-child(2) > button:hover {
+  background-color: #4b7bec;
+  color: #ffffff;
+}
+
+/* ===========================
+   5. Bottom Action Buttons (최하단 버튼그룹)
+=========================== */
+.memberInsertModal-con ul li:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #f1f3f5;
+}
+
+.memberInsertModal-con ul li:last-child button {
+  flex: 1;
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* 회원생성 (메인 버튼) */
+.memberInsertModal-con ul li:last-child button:nth-child(1) {
+  background-color: #4b7bec;
+  color: #ffffff;
+}
+
+.memberInsertModal-con ul li:last-child button:nth-child(1):hover {
+  background-color: #3867d6;
+}
+
+/* 초기화 (보조 버튼) */
+.memberInsertModal-con ul li:last-child button:nth-child(2) {
+  background-color: #f1f3f5;
+  color: #495057;
+}
+
+.memberInsertModal-con ul li:last-child button:nth-child(2):hover {
+  background-color: #e9ecef;
+}
+
+/* 취소 버튼 */
+.memberInsertModal-con ul li:last-child button:nth-child(3) {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  color: #868e96;
+}
+
+.memberInsertModal-con ul li:last-child button:nth-child(3):hover {
+  background-color: #f8f9fa;
+  color: #212529;
+}

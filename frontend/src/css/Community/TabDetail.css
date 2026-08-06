@@ -1,0 +1,302 @@
+@charset "UTF-8";
+
+/* =====================================================
+   관리자 탭 상세/수정 페이지 전체 스타일
+===================================================== */
+
+/* 전체 요소 박스 계산 초기화 */
+.tabDetail *,
+.tabDetail *::before,
+.tabDetail *::after {
+  box-sizing: border-box !important;
+}
+
+/* -----------------------------------------------------
+   1. Page Container (사이드바 및 헤더 위치 보정)
+----------------------------------------------------- */
+.tabDetail {
+  width: calc(100% - var(--sidebar-width, 260px)) !important;
+  min-height: calc(100vh - var(--header-height, 70px));
+  margin-left: var(--sidebar-width, 260px) !important;
+  margin-top: var(--header-height, 70px) !important;
+  padding: 32px 40px;
+  background-color: #f8fafc;
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    sans-serif;
+  transition:
+    margin-left 0.3s ease,
+    width 0.3s ease;
+}
+
+/* 상세 컨테이너 (대형 카드 UI) */
+.tabDetail-con {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 28px 32px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+}
+
+.tabDetail-con h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 16px;
+}
+
+/* 로딩 및 안내 문구 */
+.tabDetail-con > p {
+  text-align: center;
+  color: #64748b;
+  font-size: 0.95rem;
+  padding: 40px 0;
+}
+
+/* -----------------------------------------------------
+   2. 상세 본문 폼 영역 (Form UI)
+----------------------------------------------------- */
+.detailbody ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detailbody li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detailbody label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* 첫 번째 li (상태/체크박스 영역) 별도 스타일 */
+.detailbody li:first-child label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+  user-select: none;
+}
+
+.detailbody li:first-child input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+/* 텍스트 입력창 공통 스타일 */
+.detailbody input[type="text"] {
+  width: 100% !important;
+  height: 44px !important;
+  padding: 0 14px !important;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #0f172a;
+  background-color: #ffffff;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.detailbody input[type="text"]:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* -----------------------------------------------------
+   3. 하위 카테고리 편집 영역
+----------------------------------------------------- */
+.category-edit-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  background-color: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 8px;
+}
+
+.category-edit-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.category-edit-row input[type="text"] {
+  background-color: #ffffff;
+}
+
+/* 카테고리 개별 삭제 버튼 */
+.category-edit-row button {
+  height: 44px;
+  padding: 0 16px;
+  background-color: #ffffff;
+  color: #ef4444;
+  border: 1px solid #fca5a5;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.category-edit-row button:hover {
+  background-color: #fef2f2;
+  border-color: #ef4444;
+}
+
+/* 카테고리 추가 버튼 (아웃라인 버튼) */
+.category-edit-group > button[type="button"] {
+  height: 38px;
+  padding: 0 16px;
+  background-color: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  align-self: flex-start;
+  transition: all 0.15s ease;
+}
+
+.category-edit-group > button[type="button"]:hover {
+  background-color: #eff6ff;
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+/* -----------------------------------------------------
+   4. 정보 뷰 박스 (생성일/수정일 등)
+----------------------------------------------------- */
+.view-box {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* -----------------------------------------------------
+   5. 하단 버튼 시스템
+----------------------------------------------------- */
+
+/* 수정 완료 버튼 (폼 내부 저장) */
+.detailbody li > button {
+  width: 100%;
+  padding: 12px;
+  background-color: #122854;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 12px;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.2);
+  transition: background-color 0.15s ease;
+}
+
+.detailbody li > button:hover {
+  background-color: #1d4ed8;
+}
+
+/* 최하단 서브 버튼 영역 (목록으로, 전체 삭제) */
+.button {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  border-top: 1px dashed #e2e8f0;
+  padding-top: 20px;
+}
+
+.button button {
+  flex: 1;
+  height: 44px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease;
+}
+
+/* 목록으로 돌아가기 버튼 */
+.button button:first-child {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+}
+
+.button button:first-child:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+/* 전체 삭제 버튼 */
+.button button:last-child {
+  background-color: #ffffff;
+  color: #ef4444;
+  border: 1px solid #fca5a5;
+}
+
+.button button:last-child:hover {
+  background-color: #fef2f2;
+  border-color: #ef4444;
+}
+
+/* -----------------------------------------------------
+   6. Responsive Layout
+----------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  .tabDetail {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding: 20px 16px;
+  }
+
+  .tabDetail-con {
+    padding: 20px 16px;
+  }
+
+  .category-edit-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .category-edit-row button {
+    width: 100%;
+  }
+
+  .button {
+    flex-direction: column;
+  }
+}

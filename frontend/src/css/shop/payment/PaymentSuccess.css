@@ -1,0 +1,123 @@
+.payment-success {
+  width: 100%;
+  min-height: 100vh;
+  background: #f7f7f7;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 0;
+}
+
+
+.payment-success-con {
+  width: 500px;
+
+  background: white;
+  border-radius: 16px;
+
+  padding: 40px;
+
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+  text-align: center;
+}
+
+
+/* 제목 */
+.payment-success .title {
+  font-size: 28px;
+  font-weight: 700;
+
+  margin-bottom: 35px;
+
+  color: #222;
+}
+
+
+/* 결과 영역 */
+.payment-result ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.payment-result li {
+  margin-bottom: 18px;
+
+  font-size: 16px;
+  color: #555;
+}
+
+
+/* 상품명 / 금액 강조 */
+.payment-result li:nth-child(2) {
+  font-weight: 600;
+  color: #222;
+}
+
+
+.payment-result li:nth-child(3) {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+}
+
+
+
+/* 버튼 영역 */
+.payment-result button {
+
+  width: 200px;
+  height: 45px;
+
+  border: none;
+  border-radius: 8px;
+
+  margin-top: 10px;
+
+  background: #222;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.payment-result button:hover {
+
+  background: #444;
+
+  transform: translateY(-2px);
+
+}
+
+
+/* 모바일 */
+@media(max-width:768px){
+
+  .payment-success {
+    padding: 20px;
+  }
+  .payment-success-con {
+
+    width: 100%;
+    padding: 30px 20px;
+
+  }
+
+  .payment-success .title {
+    font-size: 24px;
+  }
+
+  .payment-result button {
+    width: 100%;
+  }
+
+}
