@@ -249,7 +249,7 @@ Google, Naver, Kakao 소셜 로그인을 지원합니다.
 
 | ERD |
 | ------ |
-| <img src="./image/16. 관리자 게시판(1).gif" width="300px" alt="GIF 설명"> |
+| <img src="./image/ERD 구조.png" alt="ERD"> |
 
 </details>
 
