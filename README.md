@@ -229,7 +229,7 @@ Google, Naver, Kakao 소셜 로그인을 지원합니다.
 <summary><h2 id="팀-협업">팀 협업</h2></summary>
 
 | 이름 | 담당 내용 |
-|-------|-----------|
+|-------|-------------------|
 | 이XX </br>(팀장) | 페이지구조 설계, 메인페이지, 캘린더, 카카오맵, CI/CD, GIT 관리 |
 | 김XX | 회원기능<br/>- 시큐리티, JWT 기반 인증/인가<br/>- 챗봇 FAQ<br/>- 파일저장기능 공통화 |
 | 이현성 | 게시판<br/>- 게시글 CRUD<br/>- 댓글 CRUD<br/><br/>관리자 페이지<br/>- 탭 별 게시글 관리 기능<br/>- 게시글 상세 모달기능<br/>- 게시글 개별 삭제, 선택삭제 기능 구현<br/>- 탭 및 카테고리 CRUD<br/><br/>루틴<br/>- 부위 장비 선택 후 운동루틴 생성<br/>- 루틴결과에서 사진보기를 통해 GIF 파일 오픈 클로즈 토글<br/>- 루틴내역에서 이전 결과 클릭 시 내역 불러오기 (최대 5개까지만 저장) |
@@ -240,13 +240,9 @@ Google, Naver, Kakao 소셜 로그인을 지원합니다.
 <details>
 <summary><h2 id="프로젝트-구조">프로젝트 구조</h2></summary>
 
-| 프론트 | 백 |
-|--------|-----|
-| <img src="./image/frontend.png" alt="front"> | <img src="./image/backend.png" alt="back"> |
-
-| ERD |
-| ------ |
-| <img src="./image/ERD 구조.png" alt="ERD"> |
+| 프론트 | 백 | ERD |
+|--------|-----|--------------|
+| <img src="./image/frontend.png" alt="front"> | <img src="./image/backend.png" alt="back"> | <img src="./image/ERD 구조.png" alt="ERD"> |
 
 </details>
 
