@@ -133,9 +133,9 @@ graph TB
 ### Docker Compose로 실행
 
 ```bash
-git clone https://github.com/lhstk114@gmail.com/fitmate.git
+git clone https://github.com/lhstk114-jpg/fitmate_fullstack.git
 cd fitmate
-cp .env.example .env   # 환경변수 설정 후
+# 환경변수 설정 / 환경변수 설정은 아래 참조
 docker-compose up -d
 ```
 
