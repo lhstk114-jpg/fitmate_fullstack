@@ -91,26 +91,7 @@
 ![AWS EC2](https://img.shields.io/badge/-AWS%20EC2-FF9900?logo=amazonec2&logoColor=white)
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=white)
 
-</details>
-
-<details>
-<summary><h2 id="아키텍처">아키텍처</h2></summary>
-
-```mermaid
-graph TB
-    Client["클라이언트<br/>React"] -->|REST API / JWT| Server["서버<br/>Spring Boot"]
-    Server --> MySQL[("MySQL<br/>메인 데이터")]
-    Server --> Redis[("Redis<br/>세션 / 캐시")]
-    Server --> OAuth["OAuth<br/>Google / Naver / Kakao"]
-    Server --> ExtAPI["외부 API<br/>Weather / Map 등"]
-    Server -.배포.-> Infra["AWS EC2 + Docker"]
-```
-
-</details>
-
-<details>
-<summary><h2 id="개발-툴">개발 툴</h2></summary>
-
+**개발 도구(Develope tool)**</br>
 ![VSCode](https://img.shields.io/badge/-VSCode-007ACC?logo=visualstudiocode&logoColor=white)
 ![Vite](https://img.shields.io/badge/-Vite-646CFF?logo=vite&logoColor=white)
 ![IntelliJ IDEA](https://img.shields.io/badge/-IntelliJ%20IDEA-000000?logo=intellijidea&logoColor=white)
@@ -120,11 +101,7 @@ graph TB
 ![Tiptap Editor](https://img.shields.io/badge/-Tiptap%20Editor-000000?style=flat)
 ![KOMORAN](https://img.shields.io/badge/-KOMORAN-A50034?style=flat)
 
-</details>
-
-<details>
-<summary><h2 id="협업-도구">협업 도구</h2></summary>
-
+**협업 도구(Collaboration tool)**</br>
 ![KakaoTalk](https://img.shields.io/badge/-KakaoTalk-FFCD00?logo=kakaotalk&logoColor=black)
 ![Google Sheets](https://img.shields.io/badge/-Google%20Sheets-34A853?logo=googlesheets&logoColor=white)
 ![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white)
@@ -132,86 +109,7 @@ graph TB
 
 카카오톡으로 실시간 소통, 스프레드시트로 진행 상황 및 일정 공유, Git/GitHub으로 코드 및 이슈 관리를 진행했습니다.
 
-</details>
-
-<details open>
-<summary><h2 id="사용방법">:rocket: 사용방법</h2></summary>
-
-프로젝트는 `frontend/`, `backend/`로 구성되어 있으며, Docker Compose로 한 번에 실행하거나 각각 따로 실행할 수 있으나 Docker Compose로 실행하는 방법만 설명합니다.
-
-### Docker Compose로 실행
-
-```bash
-git clone https://github.com/lhstk114-jpg/fitmate_fullstack.git
-cd fitmate
-# 환경변수 설정 (아래 "환경변수 설정" 참조)
-docker-compose up -d
-```
-
-브라우저에서 `http://localhost:3000` 접속
-
-</details>
-
-<details>
-<summary><h2 id="환경변수-설정">환경변수 설정</h2></summary>
-
-`.env.example` 파일을 참고하여 `.env` 파일을 생성하세요.
-
-```
-# 로컬 .env
-# 실제 로컬 환경에서는 이 파일을 복사하여 .env로 사용
-# EC2 배포 환경에서는 깃 secret에 작성된 키 값을 가져와서 새로 .env를 만들어서 사용됨
-
-# MySQL
-MYSQL_DATABASE=fitmate_db
-MYSQL_ROOT_PASSWORD=
-
-# RabbitMQ
-RABBITMQ_DEFAULT_USER=admin
-RABBITMQ_DEFAULT_PASS=
-
-# Kakao API
-KAKAO_ADMIN_KEY=
-KAKAO_MAP_KEY=
-
-# Google Translate API
-GOOGLE_TRANSLATE_API_KEY=
-
-# ExerciseDB API
-EXERCISEDB_API_KEY=
-
-# OpenWeather API
-OPENWEATHER_API_KEY=
-
-# Google OAuth2
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-
-# Naver OAuth2
-NAVER_CLIENT_ID=
-NAVER_CLIENT_SECRET=
-
-# Kakao OAuth2
-KAKAO_CLIENT_ID=
-KAKAO_CLIENT_SECRET=
-
-# JWT 시크릿 키
-JWT_SECRET_KEY=
-
-# Docker Hub 유저이름
-DOCKERHUB_USERNAME=
-
-# 서버 URL
-FRONT_SERVER_URL=localhost:3000
-BACKEND_API_SERVER_URL=localhost:8090
-```
-
-</details>
-
-<details>
-<summary><h2 id="api">API 및 OAuth</h2></summary>
-
-**연동 API**
+**연동 API**<br/>
 
 | 분류 | API |
 |------|-----|
@@ -230,6 +128,22 @@ Google, Naver, Kakao 소셜 로그인을 지원합니다.
 ![Kakao](https://img.shields.io/badge/-Kakao-FFCD00?logo=kakaotalk&logoColor=black)
 
 </details>
+
+<details>
+<summary><h2 id="아키텍처">아키텍처</h2></summary>
+
+```mermaid
+graph TB
+    Client["클라이언트<br/>React"] -->|REST API / JWT| Server["서버<br/>Spring Boot"]
+    Server --> MySQL[("MySQL<br/>메인 데이터")]
+    Server --> Redis[("Redis<br/>세션 / 캐시")]
+    Server --> OAuth["OAuth<br/>Google / Naver / Kakao"]
+    Server --> ExtAPI["외부 API<br/>Weather / Map 등"]
+    Server -.배포.-> Infra["AWS EC2 + Docker"]
+```
+
+</details>
+
 
 <details>
 <summary><h2 id="팀-협업">팀 협업</h2></summary>
