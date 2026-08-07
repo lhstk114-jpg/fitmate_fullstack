@@ -32,63 +32,18 @@
 <details open>
 <summary><h2 id="기술-스택">기술 스택</h2></summary>
 
-**프론트 (Frontend)**<br/>
-![React](https://img.shields.io/badge/-React-20232A?logo=react&logoColor=61DAFB)
-![CSS3](https://img.shields.io/badge/-CSS3-1572B6?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![Node.js](https://img.shields.io/badge/-Node.js-339933?logo=node.js&logoColor=white)
-![Axios](https://img.shields.io/badge/-Axios-5A29E4?logo=axios&logoColor=white)
-
-**백 (Backend)**<br/>
-![Spring Boot](https://img.shields.io/badge/-Spring%20Boot-6DB33F?logo=springboot&logoColor=white)
-![Spring Data JPA](https://img.shields.io/badge/-Spring%20Data%20JPA-6DB33F?logo=spring&logoColor=white)
-![Spring Security](https://img.shields.io/badge/-Spring%20Security-6DB33F?logo=springsecurity&logoColor=white)
-![Java](https://img.shields.io/badge/-Java%2017-007396?logo=openjdk&logoColor=white)
-![JWT](https://img.shields.io/badge/-JWT-000000?logo=jsonwebtokens&logoColor=white)
-
-**저장소 (Database)**<br/>
-![MySQL](https://img.shields.io/badge/-MySQL-4479A1?logo=mysql&logoColor=white)
-![Redis](https://img.shields.io/badge/-Redis-DC382D?logo=redis&logoColor=white)
-
-**배포 (Deployment)**<br/>
-![AWS EC2](https://img.shields.io/badge/-AWS%20EC2-FF9900?logo=amazonec2&logoColor=white)
-![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=white)
-
-**개발 도구(Develope tool)**</br>
-![VSCode](https://img.shields.io/badge/-VSCode-007ACC?logo=visualstudiocode&logoColor=white)
-![Vite](https://img.shields.io/badge/-Vite-646CFF?logo=vite&logoColor=white)
-![IntelliJ IDEA](https://img.shields.io/badge/-IntelliJ%20IDEA-000000?logo=intellijidea&logoColor=white)
-![Gradle](https://img.shields.io/badge/-Gradle-02303A?logo=gradle&logoColor=white)
-![Socket.io](https://img.shields.io/badge/-Socket.io-010101?logo=socketdotio&logoColor=white)
-![RabbitMQ](https://img.shields.io/badge/-RabbitMQ-FF6600?logo=rabbitmq&logoColor=white)
-![Tiptap Editor](https://img.shields.io/badge/-Tiptap%20Editor-000000?style=flat)
-![KOMORAN](https://img.shields.io/badge/-KOMORAN-A50034?style=flat)
-
-**협업 도구(Collaboration tool)**</br>
-![KakaoTalk](https://img.shields.io/badge/-KakaoTalk-FFCD00?logo=kakaotalk&logoColor=black)
-![Google Sheets](https://img.shields.io/badge/-Google%20Sheets-34A853?logo=googlesheets&logoColor=white)
-![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/-GitHub-181717?logo=github&logoColor=white)
+| 분류 | 기술 |
+|------|------|
+| **Frontend** | ![React](https://img.shields.io/badge/-React-20232A?logo=react&logoColor=61DAFB) ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black) ![Node.js](https://img.shields.io/badge/-Node.js-339933?logo=node.js&logoColor=white) ![Axios](https://img.shields.io/badge/-Axios-5A29E4?logo=axios&logoColor=white) |
+| **Backend** | ![Spring Boot](https://img.shields.io/badge/-Spring%20Boot-6DB33F?logo=springboot&logoColor=white) ![Spring Data JPA](https://img.shields.io/badge/-Spring%20Data%20JPA-6DB33F?logo=spring&logoColor=white) ![Spring Security](https://img.shields.io/badge/-Spring%20Security-6DB33F?logo=springsecurity&logoColor=white) ![Java](https://img.shields.io/badge/-Java%2017-007396?logo=openjdk&logoColor=white) ![JWT](https://img.shields.io/badge/-JWT-000000?logo=jsonwebtokens&logoColor=white) |
+| **Database** | ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?logo=mysql&logoColor=white) ![Redis](https://img.shields.io/badge/-Redis-DC382D?logo=redis&logoColor=white) |
+| **Deployment** | ![AWS EC2](https://img.shields.io/badge/-AWS%20EC2-FF9900?logo=amazonec2&logoColor=white) ![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=white) |
+| **개발 도구** | ![VSCode](https://img.shields.io/badge/-VSCode-007ACC?logo=visualstudiocode&logoColor=white) ![Vite](https://img.shields.io/badge/-Vite-646CFF?logo=vite&logoColor=white) ![IntelliJ IDEA](https://img.shields.io/badge/-IntelliJ%20IDEA-000000?logo=intellijidea&logoColor=white) ![Gradle](https://img.shields.io/badge/-Gradle-02303A?logo=gradle&logoColor=white) ![Socket.io](https://img.shields.io/badge/-Socket.io-010101?logo=socketdotio&logoColor=white) ![RabbitMQ](https://img.shields.io/badge/-RabbitMQ-FF6600?logo=rabbitmq&logoColor=white) ![Tiptap Editor](https://img.shields.io/badge/-Tiptap%20Editor-000000?style=flat) ![KOMORAN](https://img.shields.io/badge/-KOMORAN-A50034?style=flat) |
+| **협업 도구** | ![KakaoTalk](https://img.shields.io/badge/-KakaoTalk-FFCD00?logo=kakaotalk&logoColor=black) ![Google Sheets](https://img.shields.io/badge/-Google%20Sheets-34A853?logo=googlesheets&logoColor=white) ![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/-GitHub-181717?logo=github&logoColor=white) |
+| **연동 API** | OpenWeather API · ExerciseDB API · Google Cloud Translation API · KakaoBank API · KakaoMap API |
+| **OAuth 2.0** | ![Google](https://img.shields.io/badge/-Google-4285F4?logo=google&logoColor=white) ![Naver](https://img.shields.io/badge/-Naver-03C75A?logo=naver&logoColor=white) ![Kakao](https://img.shields.io/badge/-Kakao-FFCD00?logo=kakaotalk&logoColor=black) |
 
 카카오톡으로 실시간 소통, 스프레드시트로 진행 상황 및 일정 공유, Git/GitHub으로 코드 및 이슈 관리를 진행했습니다.
-
-**연동 API**<br/>
-
-| 분류 | API |
-|------|-----|
-| 날씨 | OpenWeather API |
-| 운동 정보 | ExerciseDB API |
-| 번역 | Google Cloud Translation API |
-| 결제/계좌 | KakaoBank API |
-| 지도 | KakaoMap API |
-
-**OAuth 2.0**
-
-Google, Naver, Kakao 소셜 로그인을 지원합니다.
-
-![Google](https://img.shields.io/badge/-Google-4285F4?logo=google&logoColor=white)
-![Naver](https://img.shields.io/badge/-Naver-03C75A?logo=naver&logoColor=white)
-![Kakao](https://img.shields.io/badge/-Kakao-FFCD00?logo=kakaotalk&logoColor=black)
 
 </details>
 
@@ -138,9 +93,6 @@ graph TB
 | <img src="./image/16. 관리자 게시판(1).gif" width="300px" alt="GIF 설명"> | <img src="./image/8. 게시판(1).gif" width="300px" alt="GIF 설명"> | <img src="./image/9. 루틴생성 조회(1).gif" width="300px" alt="GIF 설명">|
 
 </details>
-
-
-
 
 <details>
 <summary><h2 id="팀-협업">팀 협업</h2></summary>
