@@ -47,7 +47,7 @@
 
 </details>
 
-<details>
+<details open>
 <summary><h2 id="아키텍처">아키텍처</h2></summary>
 
 ```mermaid
@@ -62,7 +62,7 @@ graph TB
 
 </details>
 
-<details open>
+<details>
 <summary><h2 id="기획배경">기획배경</h2></summary>
 
 사람들에게 운동을 지속적으로 하지못하는 이유와 필요로 하는 부분에 대해 설문을 한 결과<br/>
@@ -71,7 +71,7 @@ graph TB
 
 </details>
 
-<details open>
+<details>
 <summary><h2 id="주요-기능">:star2: 주요 기능</h2></summary>
 
 **구독을 통한 헬스장 및 PT 접근**
